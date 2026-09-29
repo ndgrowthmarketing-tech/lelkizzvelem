@@ -16,55 +16,51 @@
             theme: {
                 extend: {
                     colors: {
-    beige: {
-        50:  '#FFF8F4',
-        100: '#FFF1EB',
-        200: '#FEE0D2',
-        300: '#FDC5AB',
-        400: '#F0A07D',
-        500: '#CF6B45',
-        600: '#B85C3E',
-        700: '#97472A',
-        800: '#7A3A24',
-        900: '#5E2D1C',
-    },
-    earth: {
-        100: '#FFF1EB',
-        500: '#B85C3E',
-        800: '#4A2A22',
-    }
-},
+                        /* Narancs-domináns, elegáns paletta */
+                        brand: {
+                            main: '#f28500',       /* A domináns márkanarancs */
+                            hover: '#d67500',      /* Sötétebb narancs gombokhoz */
+                            bg: '#ffe8d6',         /* Fő háttérszín: lágy, meleg barack/narancs */
+                            card: '#fff5ec',       /* Kártyák színe: nagyon világos, tört narancsos-krém (NEM tiszta fehér!) */
+                            dark: '#4a2008',       /* Szövegek és sötét elemek (mélybarna) */
+                            accent: '#ffb673'      /* Világos narancs kiemelésekhez */
+                        }
+                    },
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft-orange': '0 10px 40px -10px rgba(242, 133, 0, 0.2)',
+                        'soft-orange-hover': '0 20px 40px -10px rgba(242, 133, 0, 0.35)',
                     }
                 }
             }
         }
     </script>
     <style>
-    /* Egyedi CSS a finom animációkhoz és erőteljes, narancssárga megjelenéshez */
+    /* Fejléc - Erőteljes narancs üveghatással */
     .glass-nav {
-        /* Élénk, erőteljes narancssárga háttér, enyhe átlátszósággal */
-        background: rgba(255, 115, 0, 0.85); 
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        /* Egy kis narancssárgás ragyogás, hogy még jobban kiemelkedjen */
-        box-shadow: 0 4px 20px rgba(255, 115, 0, 0.4); 
+        background: rgba(242, 133, 0, 0.95); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     
+    /* Elegáns szövegárnyék a hero szekcióhoz, hogy a kép világos maradhasson */
+    .text-glow {
+        text-shadow: 0 2px 15px rgba(74, 32, 8, 0.6), 0 2px 4px rgba(74, 32, 8, 0.8);
+    }
+
     .fade-in {
-        /* Egy kicsit pattogósabb, erőteljesebb animációs ív (cubic-bezier) */
-        animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation: fadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
     
     @keyframes fadeIn {
-        /* Nagyobb távolságból és picit kisebb méretből indul a látványosabb hatásért */
-        from { opacity: 0; transform: translateY(30px) scale(0.95); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Gördítősáv elrejtése a sliderhez, de a funkció megmarad */
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -72,31 +68,32 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-</style>
+    </style>
 </head>
-<body class="bg-beige-50 text-earth-800 font-sans antialiased selection:bg-beige-300 selection:text-earth-900">
+<body class="bg-brand-bg text-brand-dark font-sans antialiased selection:bg-brand-main selection:text-white">
 
-    <header class="fixed w-full top-0 z-50 glass-nav border-b border-beige-200 transition-all duration-300">
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-serif text-2xl font-bold text-earth-800 flex items-center gap-2">
-                        <i class="fa-solid fa-spa text-beige-600"></i> Lelkizz velem
+                    <a href="#" class="font-serif text-2xl font-bold text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-spa text-brand-dark opacity-80"></i> Lelkizz velem
                     </a>
                 </div>
                 
                 <!-- Asztali menü -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#mi-ez" class="text-earth-800 hover:text-beige-600 font-medium transition-colors">Mi ez?</a>
-                    <a href="#elonyok" class="text-earth-800 hover:text-beige-600 font-medium transition-colors">Előnyök</a>
-                    <a href="#szolgaltatasok" class="text-earth-800 hover:text-beige-600 font-medium transition-colors">Árak</a>
-                    <a href="#velemenyek" class="text-earth-800 hover:text-beige-600 font-medium transition-colors">Vélemények</a>
-                    <a href="#kapcsolat" class="bg-earth-500 hover:bg-earth-800 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">Időpontot foglalok</a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#mi-ez" class="text-brand-dark hover:text-white font-medium transition-colors">Mi ez?</a>
+                    <a href="#elonyok" class="text-brand-dark hover:text-white font-medium transition-colors">Előnyök</a>
+                    <a href="#szolgaltatasok" class="text-brand-dark hover:text-white font-medium transition-colors">Árak</a>
+                    <a href="#velemenyek" class="text-brand-dark hover:text-white font-medium transition-colors">Vélemények</a>
+                    <a href="#kapcsolat" class="bg-brand-dark hover:bg-black text-brand-bg px-6 py-2.5 rounded-full font-medium transition-all shadow-sm">Időpontot foglalok</a>
                 </nav>
 
                 <!-- Mobil menü gomb -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-earth-800 hover:text-beige-600 focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-white focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -104,39 +101,40 @@
         </div>
 
         <!-- Mobil menü lenyíló -->
-        <div id="mobile-menu" class="hidden md:hidden bg-beige-50 border-b border-beige-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#mi-ez" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Mi ez?</a>
-                <a href="#elonyok" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Előnyök</a>
-                <a href="#szolgaltatasok" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Árak</a>
-                <a href="#velemenyek" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Vélemények</a>
-                <a href="#kapcsolat" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-earth-500 text-white hover:bg-earth-800 mobile-link">Időpontot foglalok</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-main border-t border-white/20 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#mi-ez" class="block px-3 py-3 rounded-xl text-base font-medium text-brand-dark hover:bg-brand-dark hover:text-brand-main mobile-link">Mi ez?</a>
+                <a href="#elonyok" class="block px-3 py-3 rounded-xl text-base font-medium text-brand-dark hover:bg-brand-dark hover:text-brand-main mobile-link">Előnyök</a>
+                <a href="#szolgaltatasok" class="block px-3 py-3 rounded-xl text-base font-medium text-brand-dark hover:bg-brand-dark hover:text-brand-main mobile-link">Árak</a>
+                <a href="#velemenyek" class="block px-3 py-3 rounded-xl text-base font-medium text-brand-dark hover:bg-brand-dark hover:text-brand-main mobile-link">Vélemények</a>
+                <a href="#kapcsolat" class="block px-3 py-3 mt-4 text-center rounded-xl text-base font-medium bg-brand-dark text-brand-bg hover:bg-black mobile-link">Időpontot foglalok</a>
             </div>
         </div>
     </header>
 
-    <main class="pt-20">
-        <section id="mi-ez" class="relative bg-earth-100 overflow-hidden">
-            <!-- Háttérkép és overlay -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Kényelmes teázó sarok" class="w-full h-full object-cover object-center opacity-40">
-                <div class="absolute inset-0 bg-gradient-to-r from-earth-100 via-earth-100/80 to-transparent"></div>
-            </div>
+    <main>
+        <!-- Hero Szekció (Középre igazított háttérkép, minimális overlay, ragyogó szöveg) -->
+        <section id="mi-ez" class="relative overflow-hidden min-h-[85vh] flex items-center pt-20">
+            <!-- Háttérkép hatter.jpg -->
+            <div class="absolute inset-0 z-0" style="background-image: url('hatter.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
+            
+            <!-- Csak egy nagyon finom alsó színátmenet, hogy a lenti tartalomba átvezessen, a kép maga tiszta marad -->
+            <div class="absolute inset-x-0 bottom-0 h-1/3 z-0 bg-gradient-to-t from-brand-bg to-transparent"></div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="py-20 md:py-32 lg:py-48 max-w-2xl fade-in">
-                    <span class="text-beige-700 font-semibold tracking-wider uppercase text-sm mb-4 block">Miben nyújtunk megoldást?</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-earth-800 leading-tight mb-6">
-                        Olyan hely, ahol <span class="text-beige-600 italic">tényleg</span> meghallgatnak.
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-10">
+                <div class="py-12 max-w-2xl fade-in bg-brand-bg/20 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/30 shadow-2xl">
+                    <span class="text-brand-main font-extrabold tracking-widest uppercase text-sm mb-4 block text-glow">Miben nyújtunk megoldást?</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6 text-glow">
+                        Olyan hely, ahol <span class="text-brand-main italic">tényleg</span> meghallgatnak.
                     </h1>
-                    <p class="text-lg md:text-xl text-earth-800/80 mb-8 font-light leading-relaxed">
+                    <p class="text-lg md:text-xl text-white mb-10 font-medium leading-relaxed text-glow">
                         A Lelkizz velem nem pszichoterápia, és nem ígérünk orvosi csodát. Mi egy csendes, biztonságos menedéket kínálunk a rohanó hétköznapokban. Egy megértő fület, ahol ítélkezés nélkül leteheted a terheket.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#kapcsolat" class="bg-earth-500 hover:bg-earth-800 text-white text-center px-8 py-4 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg">
+                        <a href="#kapcsolat" class="bg-brand-main hover:bg-brand-hover text-brand-dark text-center px-8 py-4 rounded-full font-bold transition-all shadow-soft-orange hover:shadow-soft-orange-hover transform hover:-translate-y-1 border border-brand-main">
                             Beszélgessünk egyet
                         </a>
-                        <a href="#szolgaltatasok" class="bg-white hover:bg-beige-100 text-earth-800 text-center px-8 py-4 rounded-full font-medium transition-all shadow-md">
+                        <a href="#szolgaltatasok" class="bg-brand-dark hover:bg-black text-brand-bg text-center px-8 py-4 rounded-full font-medium transition-all shadow-md">
                             Szolgáltatások
                         </a>
                     </div>
@@ -144,172 +142,184 @@
             </div>
         </section>
 
-        <section id="elonyok" class="py-20 bg-beige-50">
+        <!-- Előnyök Szekció -->
+        <section id="elonyok" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Miért jó kibeszélni?</h2>
-                    <p class="text-lg text-earth-800/70">Néha a legnagyobb segítség nem egy tanács, hanem pusztán az, hogy kimondhatjuk, ami nyomja a lelkünket.</p>
+                    <span class="text-brand-main font-bold tracking-widest uppercase text-xs mb-2 block">Filozófiánk</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Miért jó kibeszélni?</h2>
+                    <p class="text-lg text-brand-dark/80 font-medium">Néha a legnagyobb segítség nem egy tanács, hanem pusztán az, hogy kimondhatjuk, ami nyomja a lelkünket.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <!-- Kártya 1 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-100 hover:shadow-md transition-shadow text-center group">
-                        <div class="w-16 h-16 bg-beige-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-beige-200 transition-colors">
-                            <i class="fa-solid fa-ear-listen text-2xl text-beige-700"></i>
+                    <div class="bg-brand-card p-10 rounded-[2.5rem] shadow-soft-orange hover:shadow-soft-orange-hover transition-all duration-300 text-center group">
+                        <div class="w-20 h-20 bg-brand-bg rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:bg-brand-main transition-all duration-300 border border-brand-main/20">
+                            <i class="fa-solid fa-ear-listen text-3xl text-brand-main group-hover:text-brand-dark transition-colors"></i>
                         </div>
-                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Értő figyelem</h3>
-                        <p class="text-earth-800/70">Nincs okoskodás, nincs közbeszólás. Itt a fókusz száz százalékban rajtad és a te mondandódon van.</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4">Értő figyelem</h3>
+                        <p class="text-brand-dark/70 font-medium leading-relaxed">Nincs okoskodás, nincs közbeszólás. Itt a fókusz száz százalékban rajtad és a te mondandódon van.</p>
                     </div>
 
                     <!-- Kártya 2 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-100 hover:shadow-md transition-shadow text-center group">
-                        <div class="w-16 h-16 bg-beige-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-beige-200 transition-colors">
-                            <i class="fa-solid fa-shield-heart text-2xl text-beige-700"></i>
+                    <div class="bg-brand-card p-10 rounded-[2.5rem] shadow-soft-orange hover:shadow-soft-orange-hover transition-all duration-300 text-center group">
+                        <div class="w-20 h-20 bg-brand-bg rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:bg-brand-main transition-all duration-300 border border-brand-main/20">
+                            <i class="fa-solid fa-shield-heart text-3xl text-brand-main group-hover:text-brand-dark transition-colors"></i>
                         </div>
-                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Ítélkezésmentes tér</h3>
-                        <p class="text-earth-800/70">Bármit elmondhatsz. Nincsenek kínos témák, nincsenek rossz érzések. Elfogadás van.</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4">Ítélkezésmentes tér</h3>
+                        <p class="text-brand-dark/70 font-medium leading-relaxed">Bármit elmondhatsz. Nincsenek kínos témák, nincsenek rossz érzések. Elfogadás van.</p>
                     </div>
 
                     <!-- Kártya 3 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-100 hover:shadow-md transition-shadow text-center group">
-                        <div class="w-16 h-16 bg-beige-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-beige-200 transition-colors">
-                            <i class="fa-solid fa-lock text-2xl text-beige-700"></i>
+                    <div class="bg-brand-card p-10 rounded-[2.5rem] shadow-soft-orange hover:shadow-soft-orange-hover transition-all duration-300 text-center group">
+                        <div class="w-20 h-20 bg-brand-bg rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:bg-brand-main transition-all duration-300 border border-brand-main/20">
+                            <i class="fa-solid fa-lock text-3xl text-brand-main group-hover:text-brand-dark transition-colors"></i>
                         </div>
-                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Teljes diszkréció</h3>
-                        <p class="text-earth-800/70">Amit a Lelkizz velem térben megosztasz, az biztonságban marad. A bizalom a legfontosabb alapkövünk.</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4">Teljes diszkréció</h3>
+                        <p class="text-brand-dark/70 font-medium leading-relaxed">Amit a Lelkizz velem térben megosztasz, az biztonságban marad. A bizalom a legfontosabb alapkövünk.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- ÚJ: Rólam Szekció -->
-        <section id="rolam" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        
+        <!-- Rólam Szekció (Erőteljes, domináns narancs háttérrel) -->
+        <section id="rolam" class="py-24 bg-brand-main text-brand-dark relative overflow-hidden">
+            <!-- Dekoratív háttérelemek -->
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-hover rounded-full opacity-50 blur-3xl"></div>
+            <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-accent rounded-full opacity-50 blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     
                     <!-- Kép rész -->
                     <div class="w-full lg:w-5/12 relative">
-                        <div class="absolute inset-0 bg-beige-300 rounded-3xl transform translate-x-4 translate-y-4"></div>
-                        <img src="puczmonika.png" alt="Pucz Móni - Alapító" class="relative z-10 w-full h-auto rounded-3xl shadow-xl object-cover">
+                        <div class="absolute inset-0 bg-brand-dark rounded-[2.5rem] transform translate-x-4 translate-y-4"></div>
+                        <img src="puczmonika.png" alt="Pucz Móni - Alapító" class="relative z-10 w-full h-auto rounded-[2.5rem] shadow-2xl object-cover border-4 border-brand-bg">
                     </div>
 
                     <!-- Szöveges rész -->
                     <div class="w-full lg:w-7/12">
-                        <span class="text-beige-700 font-semibold tracking-wider uppercase text-sm mb-3 block">Ismerjük meg egymást</span>
-                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-6">Pucz Móni vagyok, a Lelkizz velem megálmodója.</h2>
+                        <span class="text-brand-dark font-black tracking-widest uppercase text-sm mb-3 block opacity-80">Ismerjük meg egymást</span>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Pucz Móni vagyok, <br>a Lelkizz velem megálmodója.</h2>
                         
-                        <div class="space-y-4 text-lg text-earth-800/80 font-light leading-relaxed">
+                        <div class="space-y-6 text-lg text-brand-dark/90 font-medium leading-relaxed">
                             <p>
-                                Több mint <strong>10 év masszőri tapasztalattal</strong> és számos szakmai oklevéllel a hátam mögött hoztam létre ezt a teret. Az elmúlt évtizedben több ezer ember fordult meg a kezeim között.
+                                Több mint <strong class="font-bold">10 év masszőri tapasztalattal</strong> és számos szakmai oklevéllel a hátam mögött hoztam létre ezt a teret. Az elmúlt évtizedben több ezer ember fordult meg a kezeim között.
                             </p>
                             <p>
-                                A kezelések során hamar rájöttem egy fontos dologra: a fizikai fájdalmak és a test ellazítása mellett a vendégeimnek hatalmas szüksége volt arra, hogy <strong>valaki őszintén, ítélkezés nélkül meghallgassa a lelki terheiket is.</strong> Sokszor maga a kibeszélés hozta el a legnagyobb megkönnyebbülést.
+                                A kezelések során hamar rájöttem egy fontos dologra: a fizikai fájdalmak és a test ellazítása mellett a vendégeimnek hatalmas szüksége volt arra, hogy <strong class="font-bold">valaki őszintén, ítélkezés nélkül meghallgassa a lelki terheiket is.</strong> Sokszor maga a kibeszélés hozta el a legnagyobb megkönnyebbülést.
                             </p>
                             <p>
                                 Ez a tapasztalat hívta életre a Lelkizz velem teret. Egy olyan biztonságos, csendes szigetet akartam teremteni, ahol nincs más feladatod, csak leülni, inni egy finom teát, és egyszerűen csak megosztani azt, ami éppen nyomja a szívedet.
                             </p>
                         </div>
 
-                        <div class="mt-8 flex items-center gap-4">
-                            <div class="w-12 h-12 bg-beige-100 rounded-full flex items-center justify-center text-beige-700">
+                        <div class="mt-10 flex items-center gap-5 bg-brand-dark p-4 pr-8 rounded-full inline-flex shadow-lg text-brand-bg">
+                            <div class="w-12 h-12 bg-brand-main rounded-full flex items-center justify-center text-brand-dark font-bold">
                                 <i class="fa-solid fa-award text-xl"></i>
                             </div>
-                            <span class="font-medium text-earth-800">10+ év tapasztalat és emberközpontú figyelem</span>
+                            <span class="font-medium">10+ év tapasztalat és figyelem</span>
                         </div>
                     </div>
 
                 </div>
             </div>
         </section>
-        <section id="szolgaltatasok" class="py-20 bg-earth-100">
+        
+        <!-- Szolgáltatások Szekció -->
+        <section id="szolgaltatasok" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Szolgáltatások és Árak</h2>
-                    <p class="text-lg text-earth-800/70">Válaszd ki a neked megfelelő időtartamot. Egy kávé vagy tea mellett nyugodtan átrágjuk, ami benned van.</p>
+                    <span class="text-brand-main font-bold tracking-widest uppercase text-xs mb-2 block">Kínálatunk</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Szolgáltatások és Árak</h2>
+                    <p class="text-lg text-brand-dark/80 font-medium">Válaszd ki a neked megfelelő időtartamot. Egy kávé vagy tea mellett nyugodtan átrágjuk, ami benned van.</p>
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
                     
                     <!-- 30 perces csomag -->
-                    <div class="flex-1 bg-white rounded-3xl shadow-lg overflow-hidden border-2 border-transparent hover:border-beige-300 transition-all flex flex-col">
-                        <div class="p-8 text-center bg-beige-50 border-b border-beige-100">
-                            <h3 class="text-2xl font-serif font-bold text-earth-800">Rövid megkönnyebbülés</h3>
-                            <div class="mt-4 flex items-baseline justify-center text-5xl font-extrabold text-earth-800">
-                                5.000<span class="text-xl font-medium text-earth-800/60 ml-2">Ft</span>
+                    <div class="flex-1 bg-brand-card rounded-[2.5rem] shadow-soft-orange border-2 border-brand-main/10 hover:border-brand-main transition-all flex flex-col relative overflow-hidden">
+                        <div class="p-10 text-center border-b border-brand-main/10">
+                            <h3 class="text-2xl font-serif font-bold text-brand-dark">Rövid megkönnyebbülés</h3>
+                            <div class="mt-6 flex items-baseline justify-center text-5xl font-bold text-brand-main">
+                                5.000<span class="text-xl font-medium text-brand-dark/50 ml-2">Ft</span>
                             </div>
-                            <p class="mt-2 text-earth-800/60 font-medium">30 perces beszélgetés</p>
+                            <p class="mt-3 text-brand-dark/70 font-bold text-sm tracking-wide uppercase">30 perces beszélgetés</p>
                         </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <ul class="space-y-4 mb-8">
+                        <div class="p-10 flex-1 flex flex-col justify-between">
+                            <ul class="space-y-5 mb-10">
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-600 mt-1 mr-3"></i>
-                                    <span class="text-earth-800/80">Gyors feszültséglevezetés</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-dark/80 font-medium">Gyors feszültséglevezetés</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-600 mt-1 mr-3"></i>
-                                    <span class="text-earth-800/80">Egy konkrét napi probléma átbeszélése</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-dark/80 font-medium">Egy konkrét napi probléma átbeszélése</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-600 mt-1 mr-3"></i>
-                                    <span class="text-earth-800/80">Ajándék kávé vagy tea</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-dark/80 font-medium">Ajándék kávé vagy tea</span>
                                 </li>
                             </ul>
-                            <a href="#kapcsolat" class="block w-full py-3 px-4 bg-beige-100 hover:bg-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
+                            <a href="#kapcsolat" class="block w-full py-4 px-6 bg-brand-bg hover:bg-brand-main text-brand-dark font-bold text-center rounded-2xl transition-colors shadow-sm">
                                 Ezt választom
                             </a>
                         </div>
                     </div>
 
                     <!-- 60 perces csomag (Kiemelt) -->
-                    <div class="flex-1 bg-earth-800 rounded-3xl shadow-xl overflow-hidden transform md:-translate-y-4 flex flex-col relative">
-                        <div class="absolute top-0 inset-x-0 h-1 bg-beige-500"></div>
-                        <div class="absolute top-4 right-4 bg-beige-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                    <div class="flex-1 bg-brand-dark rounded-[2.5rem] shadow-2xl transform md:-translate-y-4 flex flex-col relative overflow-hidden border-2 border-brand-dark">
+                        <div class="absolute top-0 inset-x-0 h-2 bg-brand-main"></div>
+                        <div class="absolute top-6 right-6 bg-brand-main text-brand-dark text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
                             Legnépszerűbb
                         </div>
-                        <div class="p-8 text-center border-b border-earth-700">
-                            <h3 class="text-2xl font-serif font-bold text-white">Mélyebb kibeszélés</h3>
-                            <div class="mt-4 flex items-baseline justify-center text-5xl font-extrabold text-white">
-                                8.500<span class="text-xl font-medium text-beige-200 ml-2">Ft</span>
+                        <div class="p-10 text-center border-b border-brand-bg/10 relative z-10">
+                            <h3 class="text-2xl font-serif font-bold text-brand-bg">Mélyebb kibeszélés</h3>
+                            <div class="mt-6 flex items-baseline justify-center text-5xl font-bold text-brand-main">
+                                8.500<span class="text-xl font-medium text-brand-bg/50 ml-2">Ft</span>
                             </div>
-                            <p class="mt-2 text-beige-200 font-medium">60 perces beszélgetés</p>
+                            <p class="mt-3 text-brand-bg/70 font-bold text-sm tracking-wide uppercase">60 perces beszélgetés</p>
                         </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <ul class="space-y-4 mb-8">
+                        <div class="p-10 flex-1 flex flex-col justify-between relative z-10">
+                            <ul class="space-y-5 mb-10">
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-400 mt-1 mr-3"></i>
-                                    <span class="text-beige-50">Több idő a részletek kibontására</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-bg/90 font-medium">Több idő a részletek kibontására</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-400 mt-1 mr-3"></i>
-                                    <span class="text-beige-50">Összetettebb gondolatok megosztása</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-bg/90 font-medium">Összetettebb gondolatok megosztása</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-400 mt-1 mr-3"></i>
-                                    <span class="text-beige-50">Nyugodt, kapkodásmentes tempó</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-bg/90 font-medium">Nyugodt, kapkodásmentes tempó</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-beige-400 mt-1 mr-3"></i>
-                                    <span class="text-beige-50">Ajándék kávé, tea vagy forró csoki</span>
+                                    <i class="fa-solid fa-check text-brand-main mt-1.5 mr-4 text-lg"></i>
+                                    <span class="text-brand-bg/90 font-medium">Ajándék kávé, tea vagy forró csoki</span>
                                 </li>
                             </ul>
-                            <a href="#kapcsolat" class="block w-full py-3 px-4 bg-beige-500 hover:bg-beige-400 text-white font-semibold text-center rounded-xl transition-colors shadow-md">
+                            <a href="#kapcsolat" class="block w-full py-4 px-6 bg-brand-main hover:bg-brand-hover text-brand-dark font-bold text-center rounded-2xl transition-colors shadow-lg">
                                 Ezt választom
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-12 text-center text-sm text-earth-800/60 max-w-2xl mx-auto">
-                    *Fontos megjegyzés: A szolgáltatás nem helyettesíti a pszichiátriai vagy pszichológiai kezelést. Ha krízishelyzetben vagy, kérjük, keresd fel a megfelelő szakellátást vagy hívj segélyvonalat!
+                <div class="mt-16 text-center text-sm font-bold text-brand-dark/60 max-w-2xl mx-auto px-6 py-4 bg-brand-main/10 rounded-2xl border border-brand-main/20">
+                    <i class="fa-solid fa-circle-info text-brand-main mr-2"></i>
+                    Fontos megjegyzés: A szolgáltatás nem helyettesíti a pszichiátriai vagy pszichológiai kezelést. Ha krízishelyzetben vagy, kérjük, keresd fel a megfelelő szakellátást vagy hívj segélyvonalat!
                 </div>
             </div>
         </section>
 
-        <!-- ÚJ: Vélemények Szekció -->
-        <section id="velemenyek" class="py-20 bg-white">
+        <!-- Vélemények Szekció -->
+        <section id="velemenyek" class="py-24 bg-brand-card border-y border-brand-main/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Mit mondanak rólunk?</h2>
-                    <p class="text-lg text-earth-800/70">Néhány gondolat azoktól, akik már megtapasztalták a Lelkizz velem nyugalmát.</p>
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-main font-bold tracking-widest uppercase text-xs mb-2 block">Tapasztalatok</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Mit mondanak rólunk?</h2>
+                    <p class="text-lg text-brand-dark/80 font-medium">Néhány gondolat azoktól, akik már megtapasztalták a Lelkizz velem nyugalmát.</p>
                 </div>
 
                 <div class="relative max-w-6xl mx-auto">
@@ -318,89 +328,75 @@
                         
                         <!-- Vélemény 1 -->
                         <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
+                            <div class="bg-brand-bg p-10 rounded-[2.5rem] shadow-soft-orange h-full flex flex-col justify-between border border-brand-main/10">
                                 <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
+                                    <div class="flex text-brand-main mb-6 gap-1 text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"Nagyon jólesett, hogy végre valaki csak rám figyelt. Nem kaptam kéretlen tanácsokat, csak színtiszta megértést. Hatalmas kő esett le a szívemről."</p>
+                                    <p class="text-brand-dark/80 italic mb-8 font-medium leading-relaxed">"Nagyon jólesett, hogy végre valaki csak rám figyelt. Nem kaptam kéretlen tanácsokat, csak színtiszta megértést. Hatalmas kő esett le a szívemről."</p>
                                 </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Anna (28)</div>
+                                <div class="font-bold text-brand-dark flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-main flex items-center justify-center text-brand-dark">A</div>
+                                    Anna (28)
+                                </div>
                             </div>
                         </div>
 
                         <!-- Vélemény 2 -->
                         <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
+                            <div class="bg-brand-bg p-10 rounded-[2.5rem] shadow-soft-orange h-full flex flex-col justify-between border border-brand-main/10">
                                 <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
+                                    <div class="flex text-brand-main mb-6 gap-1 text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"Sokat segített lezárni egy borzasztóan nehéz hetet a munkahelyemen. A környezet nagyon nyugtató, a kávé pedig isteni volt."</p>
+                                    <p class="text-brand-dark/80 italic mb-8 font-medium leading-relaxed">"Sokat segített lezárni egy borzasztóan nehéz hetet a munkahelyemen. A környezet nagyon nyugtató, a kávé pedig isteni volt."</p>
                                 </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Gábor (35)</div>
+                                <div class="font-bold text-brand-dark flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-main flex items-center justify-center text-brand-dark">G</div>
+                                    Gábor (35)
+                                </div>
                             </div>
                         </div>
 
                         <!-- Vélemény 3 -->
                         <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
+                            <div class="bg-brand-bg p-10 rounded-[2.5rem] shadow-soft-orange h-full flex flex-col justify-between border border-brand-main/10">
                                 <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
+                                    <div class="flex text-brand-main mb-6 gap-1 text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"Kicsit tartottam tőle az elején, de a 60 perc pillanatok alatt elröppent. Olyan volt, mintha egy régi, megbízható baráttal beszélgettem volna."</p>
+                                    <p class="text-brand-dark/80 italic mb-8 font-medium leading-relaxed">"Kicsit tartottam tőle az elején, de a 60 perc pillanatok alatt elröppent. Olyan volt, mintha egy régi, megbízható baráttal beszélgettem volna."</p>
                                 </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Juli (42)</div>
+                                <div class="font-bold text-brand-dark flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-main flex items-center justify-center text-brand-dark">J</div>
+                                    Juli (42)
+                                </div>
                             </div>
                         </div>
 
                         <!-- Vélemény 4 -->
                         <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
+                            <div class="bg-brand-bg p-10 rounded-[2.5rem] shadow-soft-orange h-full flex flex-col justify-between border border-brand-main/10">
                                 <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
+                                    <div class="flex text-brand-main mb-6 gap-1 text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"Néha csak ki kell mondani a dolgokat hangosan ahhoz, hogy helyükre kerüljenek. Ez a hely tökéletes erre. Maximálisan diszkrét és profi."</p>
+                                    <p class="text-brand-dark/80 italic mb-8 font-medium leading-relaxed">"Néha csak ki kell mondani a dolgokat hangosan ahhoz, hogy helyükre kerüljenek. Ez a hely tökéletes erre. Maximálisan diszkrét és profi."</p>
                                 </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Tamás (31)</div>
-                            </div>
-                        </div>
-
-                        <!-- Vélemény 5 -->
-                        <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
-                                <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"A legjobb befektetés volt a mai napon. Sokkal könnyebb lélekkel jöttem el, mint ahogy megérkeztem. Mindenkinek ajánlom."</p>
+                                <div class="font-bold text-brand-dark flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-main flex items-center justify-center text-brand-dark">T</div>
+                                    Tamás (31)
                                 </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Eszter (25)</div>
-                            </div>
-                        </div>
-
-                        <!-- Vélemény 6 -->
-                        <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
-                            <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
-                                <div>
-                                    <div class="flex text-beige-500 mb-4 gap-1 text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p class="text-earth-800/80 italic mb-6 leading-relaxed">"Zseniális az egész koncepció. Nem terápiára volt szükségem, csak arra, hogy valaki végighallgasson anélkül, hogy belém fojtaná a szót. Visszatérek még."</p>
-                                </div>
-                                <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— Péter (39)</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Lapozó gombok (desktopon mutatnak jobban, mobilon lehet swipelni is) -->
-                    <div class="flex justify-center gap-4 mt-6">
-                        <button id="prev-review" class="w-12 h-12 rounded-full bg-beige-100 hover:bg-beige-200 text-earth-800 flex items-center justify-center transition-colors shadow-sm">
+                    <!-- Lapozó gombok -->
+                    <div class="flex justify-center gap-4 mt-8">
+                        <button id="prev-review" class="w-14 h-14 rounded-full bg-brand-bg hover:bg-brand-main text-brand-dark flex items-center justify-center transition-colors shadow-md">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
-                        <button id="next-review" class="w-12 h-12 rounded-full bg-beige-100 hover:bg-beige-200 text-earth-800 flex items-center justify-center transition-colors shadow-sm">
+                        <button id="next-review" class="w-14 h-14 rounded-full bg-brand-bg hover:bg-brand-main text-brand-dark flex items-center justify-center transition-colors shadow-md">
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                     </div>
@@ -408,95 +404,105 @@
             </div>
         </section>
 
-        <section id="kapcsolat" class="py-20 bg-beige-50">
+        <!-- Kapcsolat Szekció -->
+        <section id="kapcsolat" class="py-24 pb-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto flex flex-col md:flex-row">
+                <div class="bg-brand-card rounded-[3rem] shadow-2xl overflow-hidden max-w-5xl mx-auto flex flex-col md:flex-row border border-brand-main/20">
                     
-                    <!-- Kapcsolati infók bal oldalon -->
-                    <div class="md:w-2/5 bg-earth-500 p-10 text-white flex flex-col justify-between">
-                        <div>
+                    <!-- Kapcsolati infók bal oldalon (Erős narancs háttér) -->
+                    <div class="md:w-5/12 bg-brand-main p-12 text-brand-dark flex flex-col justify-between relative overflow-hidden">
+                        
+                        <div class="relative z-10">
                             <h3 class="text-3xl font-serif font-bold mb-4">Foglalj időpontot</h3>
-                            <p class="text-beige-100 mb-8">
+                            <p class="text-brand-dark/80 mb-10 font-bold leading-relaxed">
                                 Lépj meg egy lépést magadért, és oszd meg velünk, mikor lenne a legalkalmasabb egy beszélgetés számodra.
                             </p>
                             
-                            <div class="space-y-6">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4">
+                            <div class="space-y-8 font-medium">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center mr-5 shrink-0 text-brand-main">
                                         <i class="fa-solid fa-location-dot"></i>
                                     </div>
-                                    <span>1234 Budapest, Nyugalom utca 5.</span>
+                                    <div class="mt-1">
+                                        <h4 class="font-bold text-brand-dark mb-1">Címünk</h4>
+                                        <span class="text-brand-dark/80">1234 Budapest,<br> Nyugalom utca 5.</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center mr-5 shrink-0 text-brand-main">
                                         <i class="fa-solid fa-phone"></i>
                                     </div>
-                                    <span>+36 30 123 4567</span>
+                                    <div class="mt-1">
+                                        <h4 class="font-bold text-brand-dark mb-1">Telefon</h4>
+                                        <span class="text-brand-dark/80">+36 30 123 4567</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-brand-dark rounded-full flex items-center justify-center mr-5 shrink-0 text-brand-main">
                                         <i class="fa-solid fa-envelope"></i>
                                     </div>
-                                    <span>hello@kibeszelopont.hu</span>
+                                    <div class="mt-1">
+                                        <h4 class="font-bold text-brand-dark mb-1">E-mail</h4>
+                                        <span class="text-brand-dark/80">hello@kibeszelopont.hu</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="mt-12">
-                            <p class="text-sm text-beige-200 mb-3">Kövess minket:</p>
+                        <div class="mt-16 relative z-10">
                             <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-earth-800/30 hover:bg-beige-500 rounded-full flex items-center justify-center transition-colors">
-                                    <i class="fa-brands fa-facebook-f"></i>
+                                <a href="#" class="w-12 h-12 bg-brand-dark hover:bg-black text-brand-main rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fa-brands fa-facebook-f text-lg"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-earth-800/30 hover:bg-beige-500 rounded-full flex items-center justify-center transition-colors">
-                                    <i class="fa-brands fa-instagram"></i>
+                                <a href="#" class="w-12 h-12 bg-brand-dark hover:bg-black text-brand-main rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fa-brands fa-instagram text-lg"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Űrlap jobb oldalon -->
-                    <div class="md:w-3/5 p-10 bg-white">
+                    <div class="md:w-7/12 p-12 bg-brand-card relative">
                         
-                        <!-- Sikeres küldés üzenet (alapból rejtett) -->
-                        <div id="success-message" class="hidden bg-green-50 border border-green-200 text-green-800 rounded-xl p-4 mb-6 flex items-center">
-                            <i class="fa-solid fa-circle-check text-green-500 text-xl mr-3"></i>
+                        <!-- Sikeres küldés üzenet -->
+                        <div id="success-message" class="hidden bg-[#dcfce7] border border-[#bbf7d0] text-[#166534] rounded-2xl p-5 mb-8 flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#22c55e] text-xl mr-3 mt-0.5"></i>
                             <div>
-                                <h4 class="font-bold">Köszönjük a megkeresést!</h4>
-                                <p class="text-sm">Hamarosan felvesszük veled a kapcsolatot a megadott elérhetőségeken.</p>
+                                <h4 class="font-bold mb-1">Köszönjük a megkeresést!</h4>
+                                <p class="text-sm font-medium">Hamarosan felvesszük veled a kapcsolatot a megadott elérhetőségeken.</p>
                             </div>
                         </div>
 
                         <form id="booking-form" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="name" class="block text-sm font-medium text-earth-800 mb-2">Név</label>
-                                    <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-beige-200 bg-beige-50 focus:outline-none focus:ring-2 focus:ring-beige-400 focus:border-transparent transition-all">
+                                    <label for="name" class="block text-sm font-bold text-brand-dark mb-2">Név</label>
+                                    <input type="text" id="name" required class="w-full px-5 py-4 rounded-xl border-2 border-brand-main/20 bg-brand-bg focus:outline-none focus:ring-0 focus:border-brand-main transition-all text-brand-dark font-medium">
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-sm font-medium text-earth-800 mb-2">E-mail cím</label>
-                                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-beige-200 bg-beige-50 focus:outline-none focus:ring-2 focus:ring-beige-400 focus:border-transparent transition-all">
+                                    <label for="email" class="block text-sm font-bold text-brand-dark mb-2">E-mail cím</label>
+                                    <input type="email" id="email" required class="w-full px-5 py-4 rounded-xl border-2 border-brand-main/20 bg-brand-bg focus:outline-none focus:ring-0 focus:border-brand-main transition-all text-brand-dark font-medium">
                                 </div>
                             </div>
 
                             <div>
-                                <label for="service" class="block text-sm font-medium text-earth-800 mb-2">Melyik szolgáltatás érdekel?</label>
-                                <select id="service" class="w-full px-4 py-3 rounded-xl border border-beige-200 bg-beige-50 focus:outline-none focus:ring-2 focus:ring-beige-400 focus:border-transparent transition-all text-earth-800">
+                                <label for="service" class="block text-sm font-bold text-brand-dark mb-2">Melyik szolgáltatás érdekel?</label>
+                                <select id="service" class="w-full px-5 py-4 rounded-xl border-2 border-brand-main/20 bg-brand-bg focus:outline-none focus:ring-0 focus:border-brand-main transition-all text-brand-dark font-medium cursor-pointer">
                                     <option value="30min">Rövid megkönnyebbülés (30 perc) - 5.000 Ft</option>
                                     <option value="60min" selected>Mélyebb kibeszélés (60 perc) - 8.500 Ft</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label for="message" class="block text-sm font-medium text-earth-800 mb-2">Röviden miről szeretnél beszélni? (Opcionális)</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-beige-200 bg-beige-50 focus:outline-none focus:ring-2 focus:ring-beige-400 focus:border-transparent transition-all resize-none placeholder-earth-800/40" placeholder="Nem kötelező megadni, de segíthet a felkészülésben..."></textarea>
+                                <label for="message" class="block text-sm font-bold text-brand-dark mb-2">Röviden miről szeretnél beszélni? (Opcionális)</label>
+                                <textarea id="message" rows="4" class="w-full px-5 py-4 rounded-xl border-2 border-brand-main/20 bg-brand-bg focus:outline-none focus:ring-0 focus:border-brand-main transition-all resize-none text-brand-dark font-medium placeholder-brand-dark/40" placeholder="Nem kötelező megadni, de segíthet a felkészülésben..."></textarea>
                             </div>
 
-                            <button type="submit" class="w-full bg-earth-800 hover:bg-earth-900 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-md">
+                            <button type="submit" class="w-full bg-brand-dark hover:bg-black text-brand-bg font-bold py-5 px-6 rounded-xl transition-colors shadow-lg mt-2 text-lg">
                                 Időpontfoglalási kérés elküldése
                             </button>
-                            <p class="text-xs text-center text-earth-800/50 mt-4">
-                                Az űrlap elküldésével még nem történik végleges foglalás. A pontos időpontot telefonon vagy e-mailben egyeztetjük.
+                            <p class="text-xs text-center text-brand-dark/60 mt-5 font-bold">
+                                Az űrlap elküldésével még nem történik végleges foglalás.<br>A pontos időpontot telefonon vagy e-mailben egyeztetjük.
                             </p>
                         </form>
                     </div>
@@ -505,30 +511,31 @@
         </section>
     </main>
 
-    <footer class="bg-earth-900 text-beige-100 py-12">
+    <!-- Lábléc -->
+    <footer class="bg-brand-dark text-brand-bg py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-earth-800 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center border-b border-brand-main/20 pb-12">
                 <div>
-                    <a href="#" class="font-serif text-2xl font-bold text-white flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-mug-hot text-beige-500"></i> Lelkizz velem
+                    <a href="#" class="font-serif text-3xl font-bold text-brand-main flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-spa text-brand-main"></i> Lelkizz velem
                     </a>
-                    <p class="text-beige-300 text-sm">Egy hely, ahol ítélkezés nélkül meghallgatnak.</p>
+                    <p class="text-brand-bg/80 text-sm font-medium">Egy hely, ahol ítélkezés nélkül meghallgatnak.</p>
                 </div>
-                <div class="flex justify-center space-x-6">
-                    <a href="#mi-ez" class="hover:text-white transition-colors">Rólunk</a>
-                    <a href="#szolgaltatasok" class="hover:text-white transition-colors">Árak</a>
-                    <a href="#velemenyek" class="hover:text-white transition-colors">Vélemények</a>
-                    <a href="#kapcsolat" class="hover:text-white transition-colors">Kapcsolat</a>
+                <div class="flex justify-center space-x-8">
+                    <a href="#mi-ez" class="text-brand-bg hover:text-brand-main font-bold transition-colors">Rólunk</a>
+                    <a href="#szolgaltatasok" class="text-brand-bg hover:text-brand-main font-bold transition-colors">Árak</a>
+                    <a href="#velemenyek" class="text-brand-bg hover:text-brand-main font-bold transition-colors">Vélemények</a>
+                    <a href="#kapcsolat" class="text-brand-bg hover:text-brand-main font-bold transition-colors">Kapcsolat</a>
                 </div>
-                <div class="flex justify-end space-x-4">
-                    <span class="text-beige-300 text-sm">Mindennap: 10:00 - 19:00</span>
+                <div class="flex justify-end space-x-4 text-brand-bg/80 font-bold">
+                    <span>Nyitva: Mindennap 10:00 - 19:00</span>
                 </div>
             </div>
-            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-beige-400">
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-brand-bg/60 font-medium">
                 <p>&copy; 2026 Lelkizz velem. Minden jog fenntartva.</p>
-                <div class="mt-4 md:mt-0 space-x-4">
-                    <a href="#" class="hover:text-white transition-colors">Adatvédelmi tájékoztató</a>
-                    <a href="#" class="hover:text-white transition-colors">ÁSZF</a>
+                <div class="mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="hover:text-brand-main transition-colors">Adatvédelmi tájékoztató</a>
+                    <a href="#" class="hover:text-brand-main transition-colors">ÁSZF</a>
                 </div>
             </div>
         </div>
@@ -546,7 +553,6 @@
                 menu.classList.toggle('hidden');
             });
 
-            // Ha egy mobil menü linkre kattintanak, zárjuk be a menüt
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.add('hidden');
@@ -583,9 +589,7 @@
             const prevBtn = document.getElementById('prev-review');
             const nextBtn = document.getElementById('next-review');
 
-            // Gombra kattintáskor pontosan egy kártyányit görget
             nextBtn.addEventListener('click', () => {
-                // Megnézzük egy gyerek elem szélességét + gap-et
                 const scrollAmount = slider.children[0].offsetWidth + 24; 
                 slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             });
