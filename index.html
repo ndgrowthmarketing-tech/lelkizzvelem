@@ -43,28 +43,36 @@
         }
     </script>
     <style>
-        /* Egyedi CSS a finom animációkhoz és megjelenéshez */
-        .glass-nav {
-            background: rgba(253, 251, 247, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* Gördítősáv elrejtése a sliderhez, de a funkció megmarad */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    /* Egyedi CSS a finom animációkhoz és erőteljes, narancssárga megjelenéshez */
+    .glass-nav {
+        /* Élénk, erőteljes narancssárga háttér, enyhe átlátszósággal */
+        background: rgba(255, 115, 0, 0.85); 
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        /* Egy kis narancssárgás ragyogás, hogy még jobban kiemelkedjen */
+        box-shadow: 0 4px 20px rgba(255, 115, 0, 0.4); 
+    }
+    
+    .fade-in {
+        /* Egy kicsit pattogósabb, erőteljesebb animációs ív (cubic-bezier) */
+        animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    
+    @keyframes fadeIn {
+        /* Nagyobb távolságból és picit kisebb méretből indul a látványosabb hatásért */
+        from { opacity: 0; transform: translateY(30px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    
+    /* Gördítősáv elrejtése a sliderhez, de a funkció megmarad */
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
 </head>
 <body class="bg-beige-50 text-earth-800 font-sans antialiased selection:bg-beige-300 selection:text-earth-900">
 
