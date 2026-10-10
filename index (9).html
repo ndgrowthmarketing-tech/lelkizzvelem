@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lelkizz velem – Meghallgatás és beszélgetés Budapesten és online</title>
+    <meta name="description" content="Ítélkezésmentes beszélgetés teázás mellett, személyesen Budapesten vagy online. 60 és 90 perces alkalmak, egyszerű időpontfoglalás.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://lelkizzvelem.hu/">
+    <meta name="theme-color" content="#C85A17">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%AA%B7%3C/text%3E%3C/svg%3E">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hu_HU">
+    <meta property="og:site_name" content="Lelkizz velem">
+    <meta property="og:title" content="Lelkizz velem – Meghallgatás és beszélgetés Budapesten és online">
+    <meta property="og:description" content="Ítélkezésmentes beszélgetés teázás mellett, személyesen Budapesten vagy online. 60 és 90 perces alkalmak, egyszerű időpontfoglalás.">
+    <meta property="og:url" content="https://lelkizzvelem.hu/">
+    <meta property="og:image" content="https://lelkizzvelem.hu/hatter1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" as="image" href="hatter1.jpg" fetchpriority="high">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Lelkizz velem",
+      "description": "Ítélkezésmentes beszélgetés teázás mellett, személyesen Budapesten vagy online. 60 és 90 perces alkalmak, egyszerű időpontfoglalás.",
+      "url": "https://lelkizzvelem.hu/",
+      "image": "https://lelkizzvelem.hu/hatter1.jpg",
+      "telephone": "+36301234567",
+      "email": "hello@lelkizzvelem.hu",
+      "priceRange": "8500-12000 HUF",
+      "address": { "@type": "PostalAddress", "streetAddress": "Nyugalom utca 5.", "postalCode": "1234", "addressLocality": "Budapest", "addressCountry": "HU" },
+      "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "19:00" },
+      "founder": { "@type": "Person", "name": "Pucz Móni" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog", "name": "Beszélgetések",
+        "itemListElement": [
+          { "@type": "Offer", "name": "60 perces beszélgetés (személyesen vagy online)", "price": "8500", "priceCurrency": "HUF" },
+          { "@type": "Offer", "name": "90 perces beszélgetés (személyesen vagy online)", "price": "12000", "priceCurrency": "HUF" }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Fő szín: a kapcsolat-szekció égetett narancsa (#C85A17).
+                        // beige = krémes világos tónusok + a narancs árnyalatai
+                        beige: {
+                            50: '#FFF8F1',
+                            100: '#FFEFE0',
+                            200: '#FBDDC0',
+                            300: '#F5C193',
+                            400: '#E8874A',
+                            500: '#C85A17',
+                            600: '#C85A17',
+                            700: '#A64A10',
+                            800: '#7E390E',
+                            900: '#5A2A0C',
+                        },
+                        earth: {
+                            100: '#FFF1E4',
+                            500: '#C85A17',
+                            600: '#B04D10',
+                            700: '#5A3320',
+                            800: '#47291A',
+                            900: '#34200F',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav { background: rgba(255, 248, 241, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-beige-50 text-earth-800 font-sans antialiased selection:bg-earth-500 selection:text-white">
+
+    <header class="fixed w-full top-0 z-50 glass-nav border-b border-beige-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-earth-500 flex items-center gap-2">
+                        <i class="fa-solid fa-spa"></i> Lelkizz velem
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#mi-ez" class="text-earth-800 hover:text-earth-500 font-medium transition-colors">Mi ez?</a>
+                    <a href="#elonyok" class="text-earth-800 hover:text-earth-500 font-medium transition-colors">Előnyök</a>
+                    <a href="#szolgaltatasok" class="text-earth-800 hover:text-earth-500 font-medium transition-colors">Árak</a>
+                    <a href="#velemenyek" class="text-earth-800 hover:text-earth-500 font-medium transition-colors">Vélemények</a>
+                    <a href="#szolgaltatasok" class="bg-earth-500 hover:bg-earth-800 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">Időpontot foglalok</a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Menü" class="text-earth-500 hover:text-earth-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-beige-50 border-b border-beige-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#mi-ez" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Mi ez?</a>
+                <a href="#elonyok" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Előnyök</a>
+                <a href="#szolgaltatasok" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Árak</a>
+                <a href="#velemenyek" class="block px-3 py-2 rounded-md text-base font-medium text-earth-800 hover:bg-beige-100 mobile-link">Vélemények</a>
+                <a href="#szolgaltatasok" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-earth-500 text-white hover:bg-earth-800 mobile-link">Időpontot foglalok</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- HERO: narancs réteg a háttérkép felett -->
+        <section id="mi-ez" class="relative bg-earth-500 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="hatter1.jpg" alt="Kényelmes teázó sarok" fetchpriority="high" class="w-full h-full object-cover object-center" style="object-position:center center;">
+                <div class="absolute inset-0 bg-gradient-to-r from-earth-500/95 via-earth-500/75 to-earth-500/20"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="py-20 md:py-32 lg:py-48 max-w-2xl mx-auto md:mx-0 text-center md:text-left fade-in">
+                    <span class="text-beige-200 font-semibold tracking-wider uppercase text-sm mb-4 block">Miben nyújtunk megoldást?</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
+                        Olyan hely, ahol <span class="text-beige-200 italic">tényleg</span> meghallgatnak.
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/90 mb-8 font-normal leading-relaxed">
+                        A Lelkizz velem nem pszichoterápia, és nem ígérünk orvosi csodát. Mi egy csendes, biztonságos menedéket kínálunk a rohanó hétköznapokban. Egy megértő fület, ahol ítélkezés nélkül leteheted a terheket.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#szolgaltatasok" class="bg-white hover:bg-beige-100 text-earth-500 text-center px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
+                            Beszélgessünk egyet
+                        </a>
+                        <a href="#szolgaltatasok" class="bg-earth-800/40 hover:bg-earth-800/60 border border-white/40 text-white text-center px-8 py-4 rounded-full font-medium transition-all">
+                            Szolgáltatások
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELŐNYÖK: krém háttér, fehér kártyák, narancs ikonok -->
+        <section id="elonyok" class="py-20 bg-beige-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Miért jó kibeszélni?</h2>
+                    <p class="text-lg text-earth-800/70">Néha a legnagyobb segítség nem egy tanács, hanem pusztán az, hogy kimondhatjuk, ami nyomja a lelkünket.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-200 hover:shadow-md transition-shadow text-center group">
+                        <div class="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-earth-800 transition-colors">
+                            <i class="fa-solid fa-ear-listen text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Értő figyelem</h3>
+                        <p class="text-earth-800/70">Nincs okoskodás, nincs közbeszólás. Itt a fókusz száz százalékban rajtad és a te mondandódon van.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-200 hover:shadow-md transition-shadow text-center group">
+                        <div class="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-earth-800 transition-colors">
+                            <i class="fa-solid fa-shield-heart text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Ítélkezésmentes tér</h3>
+                        <p class="text-earth-800/70">Bármit elmondhatsz. Nincsenek kínos témák, nincsenek rossz érzések. Elfogadás van.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-beige-200 hover:shadow-md transition-shadow text-center group">
+                        <div class="w-16 h-16 bg-earth-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-earth-800 transition-colors">
+                            <i class="fa-solid fa-lock text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-earth-800 mb-3">Teljes diszkréció</h3>
+                        <p class="text-earth-800/70">Amit a Lelkizz velemben megosztasz, az biztonságban marad. A bizalom a legfontosabb alapkövünk.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RÓLAM: fehér háttér, narancs akcentusok -->
+        <section id="rolam" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="w-full lg:w-5/12 relative">
+                        <div class="absolute inset-0 bg-earth-500 rounded-3xl transform translate-x-4 translate-y-4"></div>
+                        <img src="puczmonika.png" alt="Pucz Móni, a Lelkizz velem alapítója" loading="lazy" decoding="async" class="relative z-10 w-full h-auto rounded-3xl shadow-xl object-cover">
+                    </div>
+
+                    <div class="w-full lg:w-7/12">
+                        <span class="text-earth-500 font-semibold tracking-wider uppercase text-sm mb-3 block">Ismerjük meg egymást</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-6">Pucz Móni vagyok, a Lelkizz velem megálmodója.</h2>
+
+                        <div class="space-y-4 text-lg text-earth-800/80 font-light leading-relaxed">
+                            <p>
+                                Több mint <strong class="font-semibold text-earth-800">10 év masszőri tapasztalattal</strong> és számos szakmai oklevéllel a hátam mögött hoztam létre ezt a teret. Az elmúlt évtizedben több ezer ember fordult meg a kezeim között.
+                            </p>
+                            <p>
+                                A kezelések során hamar rájöttem egy fontos dologra: a fizikai fájdalmak és a test ellazítása mellett a vendégeimnek hatalmas szüksége volt arra, hogy <strong class="font-semibold text-earth-800">valaki őszintén, ítélkezés nélkül meghallgassa a lelki terheiket is.</strong> Sokszor maga a kibeszélés hozta el a legnagyobb megkönnyebbülést.
+                            </p>
+                            <p>
+                                Ez a tapasztalat hívta életre a Lelkizz velemet. Egy olyan biztonságos, csendes szigetet akartam teremteni, ahol nincs más feladatod, csak leülni, inni egy finom teát, és egyszerűen csak megosztani azt, ami éppen nyomja a szívedet.
+                            </p>
+                        </div>
+
+                        <div class="mt-8 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-beige-100 rounded-full flex items-center justify-center text-earth-500">
+                                <i class="fa-solid fa-award text-xl"></i>
+                            </div>
+                            <span class="font-medium text-earth-800">10+ év tapasztalat és emberközpontú figyelem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SZOLGÁLTATÁSOK + CAL.COM FOGLALÁS -->
+        <section id="szolgaltatasok" class="py-20 bg-beige-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Szolgáltatások és Árak</h2>
+                    <p class="text-lg text-earth-800/70">Válaszd ki a neked megfelelő időtartamot, majd azt, hogy személyesen vagy online beszélgetnénk. Egy teázás mellett nyugodtan átrágjuk, ami benned van.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
+
+                    <!-- 60 perces csomag -->
+                    <div class="flex-1 bg-white rounded-3xl shadow-lg overflow-hidden border-2 border-beige-200 hover:border-earth-500 transition-all flex flex-col">
+                        <div class="p-8 text-center bg-beige-100 border-b border-beige-200">
+                            <h3 class="text-2xl font-serif font-bold text-earth-800">60 perces beszélgetés</h3>
+                            <div class="mt-4 flex items-baseline justify-center text-5xl font-extrabold text-earth-500">
+                                8.500<span class="text-xl font-medium text-earth-800/60 ml-2">Ft</span>
+                            </div>
+                            <p class="mt-2 text-earth-800/60 font-medium">Személyesen vagy online</p>
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col justify-between">
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Nyugodt, kapkodásmentes tempó</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Összetettebb gondolatok megosztása</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Ajándék tea (személyes találkozáskor)</span></li>
+                            </ul>
+                            <div class="space-y-3">
+                                <button type="button" data-cal-event="60-szemelyesen" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
+                                    <i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>Személyesen
+                                </button>
+                                <button type="button" data-cal-event="60-online" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
+                                    <i class="fa-solid fa-video mr-2 text-earth-500"></i>Online
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 90 perces csomag (Kiemelt, narancs) -->
+                    <div class="flex-1 bg-earth-500 rounded-3xl shadow-xl overflow-hidden transform md:-translate-y-4 flex flex-col relative">
+                        <div class="absolute top-0 inset-x-0 h-1 bg-beige-200"></div>
+                        <div class="absolute top-4 right-4 bg-white text-earth-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Legmélyebb
+                        </div>
+                        <div class="p-8 text-center border-b border-white/20">
+                            <h3 class="text-2xl font-serif font-bold text-white">90 perces beszélgetés</h3>
+                            <div class="mt-4 flex items-baseline justify-center text-5xl font-extrabold text-white">
+                                12.000<span class="text-xl font-medium text-beige-200 ml-2">Ft</span>
+                            </div>
+                            <p class="mt-2 text-beige-200 font-medium">Személyesen vagy online</p>
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col justify-between">
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Hosszabb idő a részletek kibontására</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Mélyebb, többrétegű témák átbeszélése</span></li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Ajándék tea vagy forró csoki (személyes találkozáskor)</span></li>
+                            </ul>
+                            <div class="space-y-3">
+                                <button type="button" data-cal-event="90-szemelyesen" class="block w-full py-3 px-4 bg-white hover:bg-beige-100 text-earth-500 font-semibold text-center rounded-xl transition-colors shadow-md">
+                                    <i class="fa-solid fa-location-dot mr-2"></i>Személyesen
+                                </button>
+                                <button type="button" data-cal-event="90-online" class="block w-full py-3 px-4 bg-white hover:bg-beige-100 text-earth-500 font-semibold text-center rounded-xl transition-colors shadow-md">
+                                    <i class="fa-solid fa-video mr-2"></i>Online
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center text-sm text-earth-800/60 max-w-2xl mx-auto">
+                    *Fontos megjegyzés: A szolgáltatás nem helyettesíti a pszichiátriai vagy pszichológiai kezelést. Ha krízishelyzetben vagy, kérjük, keresd fel a megfelelő szakellátást vagy hívj segélyvonalat!
+                </div>
+            </div>
+        </section>
+
+        <!-- VÉLEMÉNYEK: fehér szekció, krém kártyák -->
+        <section id="velemenyek" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Mit mondanak rólunk?</h2>
+                    <p class="text-lg text-earth-800/70">Néhány gondolat azoktól, akik már megtapasztalták a Lelkizz velem nyugalmát.</p>
+                </div>
+
+                <div class="relative max-w-6xl mx-auto">
+                    <div id="review-slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4"></div>
+
+                    <div class="flex justify-center gap-4 mt-6">
+                        <button id="prev-review" aria-label="Előző" class="w-12 h-12 rounded-full bg-earth-500 hover:bg-earth-800 text-white flex items-center justify-center transition-colors shadow-sm">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button id="next-review" aria-label="Következő" class="w-12 h-12 rounded-full bg-earth-500 hover:bg-earth-800 text-white flex items-center justify-center transition-colors shadow-sm">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPCSOLAT -->
+        <section id="kapcsolat" class="py-20 bg-beige-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto flex flex-col md:flex-row">
+
+                    <div class="md:w-2/5 bg-earth-500 p-10 text-white flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-serif font-bold mb-4">Kapcsolat</h3>
+                            <p class="text-beige-100 mb-8">Lépj meg egy lépést magadért, és keress bátran, ha kérdésed van.</p>
+
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-location-dot"></i></div>
+                                    <span>1234 Budapest, Nyugalom utca 5.</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-phone"></i></div>
+                                    <span>+36 30 123 4567</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-envelope"></i></div>
+                                    <span>hello@lelkizzvelem.hu</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <p class="text-sm text-beige-200 mb-3">Kövess minket:</p>
+                            <div class="flex space-x-4">
+                                <a href="#" aria-label="Facebook" class="w-10 h-10 bg-earth-800/30 hover:bg-earth-800/60 rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram" class="w-10 h-10 bg-earth-800/30 hover:bg-earth-800/60 rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-3/5 p-10 bg-white flex flex-col justify-center">
+                        <h3 class="text-3xl font-serif font-bold text-earth-800 mb-3">Foglalj időpontot</h3>
+                        <p class="text-earth-800/70 mb-8">Válaszd ki az időtartamot és a formát, majd a felugró naptárban válaszd ki a számodra megfelelő időpontot.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button type="button" data-cal-event="60-szemelyesen" class="py-4 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors"><i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>60 perc – személyesen</button>
+                            <button type="button" data-cal-event="60-online" class="py-4 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors"><i class="fa-solid fa-video mr-2 text-earth-500"></i>60 perc – online</button>
+                            <button type="button" data-cal-event="90-szemelyesen" class="py-4 px-4 bg-earth-500 hover:bg-earth-800 text-white font-semibold rounded-xl transition-colors"><i class="fa-solid fa-location-dot mr-2"></i>90 perc – személyesen</button>
+                            <button type="button" data-cal-event="90-online" class="py-4 px-4 bg-earth-500 hover:bg-earth-800 text-white font-semibold rounded-xl transition-colors"><i class="fa-solid fa-video mr-2"></i>90 perc – online</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-earth-900 text-beige-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-earth-700 pb-8">
+                <div>
+                    <a href="#" class="font-serif text-2xl font-bold text-white flex items-center gap-2 mb-2">
+                        <i class="fa-solid fa-spa text-beige-400"></i> Lelkizz velem
+                    </a>
+                    <p class="text-beige-300 text-sm">Egy hely, ahol ítélkezés nélkül meghallgatnak.</p>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="#mi-ez" class="hover:text-white transition-colors">Rólunk</a>
+                    <a href="#szolgaltatasok" class="hover:text-white transition-colors">Árak</a>
+                    <a href="#velemenyek" class="hover:text-white transition-colors">Vélemények</a>
+                    <a href="#kapcsolat" class="hover:text-white transition-colors">Kapcsolat</a>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <span class="text-beige-300 text-sm">Mindennap: 10:00 - 19:00</span>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-beige-300">
+                <p>&copy; 2026 Lelkizz velem. Minden jog fenntartva.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="adatvedelem/" class="hover:text-white transition-colors">Adatvédelmi tájékoztató</a>
+                    <a href="aszf/" class="hover:text-white transition-colors">ÁSZF</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CAL.COM BEÁGYAZÁS (változatlan) -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+
+        const CAL_EVENTS = {
+            "90-online": { namespace: "90perconline", link: "lelkizzvelem/90perconline" },
+            "90-szemelyesen": { namespace: "90perces", link: "lelkizzvelem/90perces" },
+            "60-online": { namespace: "1-oras-online", link: "lelkizzvelem/1-oras-online" },
+            "60-szemelyesen": { namespace: "egyoras", link: "lelkizzvelem/egyoras" }
+        };
+
+        const CAL_CONFIG = JSON.stringify({ layout: "month_view", useSlotsViewOnSmallScreen: "true" });
+
+        Object.values(CAL_EVENTS).forEach(ev => {
+            Cal("init", ev.namespace, { origin: "https://app.cal.com" });
+            Cal.ns[ev.namespace]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-cal-event]').forEach(btn => {
+                const ev = CAL_EVENTS[btn.dataset.calEvent];
+                if (!ev) return;
+                btn.setAttribute('data-cal-link', ev.link);
+                btn.setAttribute('data-cal-namespace', ev.namespace);
+                btn.setAttribute('data-cal-config', CAL_CONFIG);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Mobil menü
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+            document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
+
+            // Vélemények (itt szerkesztheted / bővítheted)
+            const REVIEWS = [
+                { text: "Nagyon jólesett, hogy végre valaki csak rám figyelt. Nem kaptam kéretlen tanácsokat, csak színtiszta megértést. Hatalmas kő esett le a szívemről.", name: "Anna (28)", stars: 5 },
+                { text: "Sokat segített lezárni egy borzasztóan nehéz hetet a munkahelyemen. A környezet nagyon nyugtató, a tea pedig isteni volt.", name: "Gábor (35)", stars: 5 },
+                { text: "Kicsit tartottam tőle az elején, de a 60 perc pillanatok alatt elröppent. Olyan volt, mintha egy régi, megbízható baráttal beszélgettem volna.", name: "Juli (42)", stars: 5 },
+                { text: "Néha csak ki kell mondani a dolgokat hangosan ahhoz, hogy helyükre kerüljenek. Ez a hely tökéletes erre. Maximálisan diszkrét és profi.", name: "Tamás (31)", stars: 5 },
+                { text: "A legjobb befektetés volt a mai napon. Sokkal könnyebb lélekkel jöttem el, mint ahogy megérkeztem. Mindenkinek ajánlom.", name: "Eszter (25)", stars: 4.5 },
+                { text: "Zseniális az egész koncepció. Nem terápiára volt szükségem, csak arra, hogy valaki végighallgasson anélkül, hogy belém fojtaná a szót. Visszatérek még.", name: "Péter (39)", stars: 5 }
+            ];
+
+            const slider = document.getElementById('review-slider');
+            slider.innerHTML = REVIEWS.map(r => {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    stars += r.stars >= i ? '<i class="fa-solid fa-star"></i>' : (r.stars >= i - 0.5 ? '<i class="fa-solid fa-star-half-stroke"></i>' : '');
+                }
+                return `
+                <div class="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center">
+                    <div class="bg-beige-50 p-8 rounded-3xl shadow-sm border border-beige-200 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-earth-500 mb-4 gap-1 text-sm">${stars}</div>
+                            <p class="text-earth-800/80 italic mb-6 leading-relaxed">"${r.text}"</p>
+                        </div>
+                        <div class="font-bold text-earth-800 border-t border-beige-200 pt-4">— ${r.name}</div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // Slider léptetés
+            const step = () => slider.children[0].offsetWidth + 24;
+            document.getElementById('next-review').addEventListener('click', () => slider.scrollBy({ left: step(), behavior: 'smooth' }));
+            document.getElementById('prev-review').addEventListener('click', () => slider.scrollBy({ left: -step(), behavior: 'smooth' }));
+        });
+    </script>
+</body>
+</html>
