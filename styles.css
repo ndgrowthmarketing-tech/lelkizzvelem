@@ -1179,4 +1179,9 @@ video {
     color: #fff;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
+#mi-ez h1,
+#mi-ez p,
+#mi-ez > div span {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
 
