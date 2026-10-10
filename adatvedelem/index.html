@@ -18,22 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        beige: { 50:'#FFF8F1',100:'#FFEFE0',200:'#FBDDC0',300:'#F5C193',400:'#E8874A',500:'#C85A17',600:'#C85A17',700:'#A64A10',800:'#7E390E',900:'#5A2A0C' },
-                        earth: { 100:'#FFF1E4',500:'#C85A17',600:'#B04D10',700:'#5A3320',800:'#47291A',900:'#34200F' }
-                    },
-                    fontFamily: { sans: ['"Plus Jakarta Sans"','sans-serif'], serif: ['"Playfair Display"','serif'] }
-                }
-            }
-        }
-    </script>
     <style>
         .glass-nav { background: rgba(255, 248, 241, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         .todo { background:#FBDDC0; padding:0 .25rem; border-radius:.25rem; }
@@ -50,10 +36,10 @@
     <header class="fixed w-full top-0 z-50 glass-nav border-b border-beige-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="/" class="font-serif text-2xl font-bold text-earth-500 flex items-center gap-2">
+                <a href="../" class="font-serif text-2xl font-bold text-earth-500 flex items-center gap-2">
                     <i class="fa-solid fa-spa"></i> Lelkizz velem
                 </a>
-                <a href="/" class="bg-earth-500 hover:bg-earth-800 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">
+                <a href="../" class="bg-earth-500 hover:bg-earth-800 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm">
                     <i class="fa-solid fa-arrow-left mr-2"></i>Főoldal
                 </a>
             </div>
@@ -140,8 +126,8 @@
                 </div>
 
                 <div class="text-center mt-10 space-x-3">
-                    <a href="/" class="inline-block bg-earth-500 hover:bg-earth-800 text-white px-8 py-3 rounded-full font-medium transition-colors shadow-sm">Vissza a főoldalra</a>
-                    <a href="/aszf/" class="inline-block bg-white hover:bg-beige-100 border border-beige-200 text-earth-800 px-8 py-3 rounded-full font-medium transition-colors">ÁSZF</a>
+                    <a href="../" class="inline-block bg-earth-500 hover:bg-earth-800 text-white px-8 py-3 rounded-full font-medium transition-colors shadow-sm">Vissza a főoldalra</a>
+                    <a href="../aszf/" class="inline-block bg-white hover:bg-beige-100 border border-beige-200 text-earth-800 px-8 py-3 rounded-full font-medium transition-colors">ÁSZF</a>
                 </div>
             </div>
         </section>
@@ -151,8 +137,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-beige-300">
             <p>&copy; 2026 Lelkizz velem. Minden jog fenntartva.</p>
             <div class="mt-4 md:mt-0 space-x-4">
-                <a href="/adatvedelem/" class="hover:text-white transition-colors">Adatvédelmi tájékoztató</a>
-                <a href="/aszf/" class="hover:text-white transition-colors">ÁSZF</a>
+                <a href="../adatvedelem/" class="hover:text-white transition-colors">Adatvédelmi tájékoztató</a>
+                <a href="../aszf/" class="hover:text-white transition-colors">ÁSZF</a>
             </div>
         </div>
     </footer>
