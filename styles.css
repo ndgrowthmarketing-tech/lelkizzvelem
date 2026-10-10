@@ -1156,3 +1156,15 @@ video {
     line-height: 1;
   }
 }
+.hero-orange-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        rgba(230, 105, 25, 0.50) 0%,
+        rgba(230, 105, 25, 0.28) 50%,
+        rgba(230, 105, 25, 0.08) 100%
+    );
+}
