@@ -1161,10 +1161,12 @@ video {
     inset: 0;
     z-index: 1;
     pointer-events: none;
+
     background: linear-gradient(
         to right,
-        rgba(230, 105, 25, 0.50) 0%,
-        rgba(230, 105, 25, 0.28) 50%,
-        rgba(230, 105, 25, 0.08) 100%
+        rgba(115, 48, 12, 0.62) 0%,
+        rgba(115, 48, 12, 0.38) 45%,
+        rgba(230, 105, 25, 0.12) 100%
     );
 }
+
