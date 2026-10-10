@@ -524,13 +524,13 @@ video {
   align-items: baseline;
 }
 .justify-end {
-  justify-content: center;
+  justify-content: flex-end;
 }
 .justify-center {
-  justify-conent: space-between;
+  justify-conent: center;
 }
 .justify-between {
-  justify-content: center;
+  justify-content: space-between;
 }
 .gap-1 {
   gap: 0.25rem;
