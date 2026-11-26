@@ -134,39 +134,76 @@
         </section>
 
 <!-- RÓLAM -->
-<section id="rolam" class="py-20 bg-white">
+<section id="rolam" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
             <!-- Kép -->
-            <div class="w-full lg:w-5/12 relative">
+            <div class="w-full max-w-md mx-auto lg:max-w-none lg:w-5/12 relative">
                 <div class="absolute inset-0 bg-earth-500 rounded-3xl transform translate-x-4 translate-y-4"></div>
-                <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async" class="relative z-10 w-full h-auto rounded-3xl shadow-xl object-cover">
+                <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async"
+                     class="relative z-10 w-full aspect-[4/5] object-cover rounded-3xl shadow-xl">
             </div>
 
             <!-- Szöveg kártya -->
-            <div class="w-full lg:w-7/12 bg-orange-50 border border-earth-500/30 rounded-3xl shadow-lg p-8 md:p-10">
+            <div class="w-full lg:w-7/12 bg-orange-50/60 border border-earth-500/20 rounded-3xl shadow-lg p-8 md:p-12">
 
                 <span class="text-earth-500 font-semibold tracking-wider uppercase text-sm mb-3 block">Ismerjük meg egymást</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-6">Pucz Mónika vagyok, a Lelkizz velem megálmodója.</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-8 leading-tight">
+                    Pucz Mónika vagyok,<br class="hidden md:block">
+                    a Lelkizz velem megálmodója.
+                </h2>
 
-                <div class="space-y-4 text-lg text-earth-800/80 font-light leading-relaxed">
-                    <p>
-                        Több mint <strong class="font-semibold text-earth-800">11 éve hallgatok embereket</strong> a masszázs mellett, és azt tapasztalom, hogy hatalmas megkönnyebbülést hoz, ha valaki <strong class="font-semibold text-earth-800">valóban értő figyelemmel, ítélkezés nélkül meghallgatja őket.</strong> Sokszor eltűnődtem, hogy a masszázs miatt jönnek hozzám, vagy azért, mert itt megnyílhatnak. Valószínűleg mindkettő.
+                <div class="space-y-5 text-base md:text-lg text-earth-800/80 font-light leading-relaxed">
+
+                    <!-- Kiemelt bevezető -->
+                    <p class="border-l-4 border-earth-500 pl-5 text-earth-800">
+                        <strong class="font-semibold">11 éve hallgatok embereket</strong> a masszázs mellett, és azt tapasztalom: hatalmas megkönnyebbülést hoz, ha valaki <strong class="font-semibold">valóban értő figyelemmel, ítélkezés nélkül</strong> meghallgatja őket.
                     </p>
+
                     <p>
-                        Az emberi lélektan régóta foglalkoztat, ezért az elmúlt években több területen is tanultam (Theta healing, családállítás, pszichológia konzulens képzés). Most eljött az idő, hogy megnyissam a Lelkizz velemet: egy csendes, biztonságos menedéket a rohanó hétköznapokban, ahol leteheted a terheidet, és ráláthatsz azokra az elakadásaidra, amelyeket magadtól talán nem vettél volna észre.
+                        Sokszor eltűnődtem, hogy a masszázs miatt jönnek hozzám, vagy azért, mert itt megnyílhatnak. Valószínűleg mindkettő.
                     </p>
+
                     <p>
-                        Ha szeretnéd, a beszélgetést egy 10 perces hát-, kéz- vagy talpmasszázzsal is kiegészíthetjük. Ha pedig azt látom, hogy a helyzeted meghaladja a kompetenciahatáraimat, megfelelő szakemberhez (pszichológushoz, pszichiáterhez) irányítalak. Hívj, vagy foglalj online időpontot, várlak szeretettel! 🫶🍀🌺
+                        Az emberi lélektan régóta foglalkoztat, ezért az elmúlt években több területen is tanultam. Most eljött az idő, hogy megnyissam a Lelkizz velemet: egy csendes, biztonságos menedéket a rohanó hétköznapokban, ahol leteheted a terheidet, és ráláthatsz azokra az elakadásaidra, amelyeket magadtól talán nem vettél volna észre.
+                    </p>
+
+                    <!-- Képzések -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Theta healing</span>
+                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Családállítás</span>
+                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Pszichológia konzulens képzés</span>
+                    </div>
+
+                    <p>
+                        Ha szeretnéd, a beszélgetést egy <strong class="font-semibold text-earth-800">10 perces hát-, kéz- vagy talpmasszázzsal</strong> is kiegészíthetjük.
+                    </p>
+
+                    <p class="text-sm md:text-base text-earth-800/70 italic">
+                        Ha azt látom, hogy a helyzeted meghaladja a kompetenciahatáraimat, megfelelő szakemberhez (pszichológushoz, pszichiáterhez) irányítalak.
                     </p>
                 </div>
 
-                <div class="mt-8 flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-earth-500 shadow-sm">
-                        <i class="fa-solid fa-award text-xl"></i>
+                <!-- Felhívás -->
+                <div class="mt-10 pt-8 border-t border-earth-500/20">
+                    <p class="font-serif text-xl md:text-2xl text-earth-800 mb-5">
+                        Ha megszólított ez az oldal, <br class="hidden sm:block">
+                        hívj, vagy foglalj online időpontot.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="tel:+36000000000"
+                           class="inline-flex items-center justify-center gap-2 px-7 py-3 bg-earth-500 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition">
+                            <i class="fa-solid fa-phone"></i> Hívj most
+                        </a>
+                        <a href="#idopont"
+                           class="inline-flex items-center justify-center gap-2 px-7 py-3 bg-white text-earth-500 font-semibold border-2 border-earth-500 rounded-full hover:bg-earth-500 hover:text-white transition">
+                            <i class="fa-regular fa-calendar"></i> Időpontot foglalok
+                        </a>
                     </div>
-                    <span class="font-medium text-earth-800">11 év tapasztalat és emberközpontú figyelem</span>
+
+                    <p class="mt-6 text-lg text-earth-800">Várlak szeretettel! 🫶🍀🌺</p>
                 </div>
 
             </div>
