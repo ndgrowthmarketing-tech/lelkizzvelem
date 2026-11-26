@@ -278,138 +278,167 @@
     </div>
 </section>
 
-        <!-- SZOLGÁLTATÁSOK + CAL.COM FOGLALÁS (45, 60, 80 PERC – SZEMÉLYESEN ÉS ONLINE) -->
-        <section id="szolgaltatasok" class="py-20 bg-beige-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Szolgáltatások és Árak</h2>
-                    <p class="text-lg text-earth-800/70">Válaszd ki a neked megfelelő időtartamot és formát (személyesen Budapesten vagy online). Egy teázás mellett nyugodtan átrágjuk, ami benned van.</p>
+<!-- SZOLGÁLTATÁSOK + CAL.COM FOGLALÁS -->
+<section id="szolgaltatasok" class="py-20 bg-beige-50">
+    <style>
+        .szol-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 520px; margin: 0 auto; }
+
+        /* Kártya */
+        .szol-card {
+            position: relative; display: flex; flex-direction: column;
+            background: #fff; border: 2px solid #f0e0d0; border-radius: 1.75rem;
+            box-shadow: 0 10px 30px -15px rgba(0, 0, 0, .15);
+            overflow: hidden; transition: border-color .2s, transform .2s;
+        }
+        .szol-card:hover { border-color: #C85A17; }
+
+        .szol-head { padding: 2rem 1.5rem 1.5rem; text-align: center; background: #fff8f1; border-bottom: 1px solid #f0e0d0; }
+        .szol-time { font-size: 3rem; line-height: 1; font-weight: 700; color: #C85A17; font-family: 'Playfair Display', serif; }
+        .szol-time small { display: block; margin-top: .35rem; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: rgba(0, 0, 0, .5); }
+        .szol-sub { margin: .9rem 0 0; font-size: .95rem; font-weight: 500; color: rgba(60, 30, 10, .7); }
+
+        .szol-body { flex: 1; display: flex; flex-direction: column; padding: 1.5rem; }
+        .szol-list { list-style: none; margin: 0 0 1.75rem; padding: 0; flex: 1; }
+        .szol-list li { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .85rem; line-height: 1.5; color: rgba(60, 30, 10, .85); }
+        .szol-list i { color: #C85A17; margin-top: .3rem; font-size: .85rem; }
+
+        /* Foglalás gombok: felirat bal oldalt, ár jobb oldalt */
+        .szol-actions { display: flex; flex-direction: column; gap: .75rem; }
+        .szol-btn {
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            width: 100%; padding: 1rem 1.25rem; border: 2px solid #C85A17; border-radius: 1rem;
+            background: #C85A17; color: #fff; font: inherit; font-weight: 600; font-size: 1rem;
+            cursor: pointer; text-align: left; transition: all .2s;
+            box-shadow: 0 8px 18px -8px rgba(200, 90, 23, .6);
+        }
+        .szol-btn:hover { background: #8f3e0d; border-color: #8f3e0d; transform: translateY(-2px); }
+        .szol-btn-label { display: flex; align-items: center; gap: .6rem; }
+        .szol-btn-price { font-weight: 800; font-size: 1.1rem; white-space: nowrap; }
+        .szol-btn-price i { margin-left: .5rem; font-size: .8rem; opacity: .85; }
+
+        /* Kiemelt (80 perc) */
+        .szol-card-featured { background: #C85A17; border-color: #C85A17; }
+        .szol-card-featured .szol-head { background: rgba(0, 0, 0, .12); border-bottom-color: rgba(255, 255, 255, .2); }
+        .szol-card-featured .szol-time { color: #fff; }
+        .szol-card-featured .szol-time small { color: rgba(255, 255, 255, .75); }
+        .szol-card-featured .szol-sub { color: rgba(255, 255, 255, .9); }
+        .szol-card-featured .szol-list li { color: #fff; }
+        .szol-card-featured .szol-list i { color: #ffe3cc; }
+        .szol-card-featured .szol-btn { background: #fff; color: #C85A17; border-color: #fff; box-shadow: 0 8px 18px -8px rgba(0, 0, 0, .4); }
+        .szol-card-featured .szol-btn:hover { background: #fff8f1; border-color: #fff8f1; }
+        .szol-badge {
+            position: absolute; top: 1rem; right: 1rem; background: #fff; color: #C85A17;
+            font-size: .7rem; font-weight: 700; padding: .3rem .8rem; border-radius: 999px;
+            text-transform: uppercase; letter-spacing: .06em;
+        }
+
+        .szol-note { margin: 2.5rem auto 0; max-width: 42rem; text-align: center; font-size: .875rem; color: rgba(60, 30, 10, .6); line-height: 1.6; }
+
+        /* Asztali nézet: három oszlop */
+        @media (min-width: 1024px) {
+            .szol-grid { grid-template-columns: repeat(3, 1fr); max-width: 72rem; gap: 2rem; align-items: stretch; }
+            .szol-card-featured { transform: translateY(-12px); }
+            .szol-card-featured:hover { transform: translateY(-12px); }
+        }
+
+        /* Kis mobil */
+        @media (max-width: 400px) {
+            .szol-btn { padding: .9rem 1rem; font-size: .95rem; }
+            .szol-btn-price { font-size: 1rem; }
+        }
+    </style>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-4">Szolgáltatások és árak</h2>
+            <p class="text-lg text-earth-800/70">Válaszd ki az időtartamot, majd a formát: személyesen Budapesten vagy online. Egy teázás mellett nyugodtan átbeszéljük, ami benned van.</p>
+        </div>
+
+        <div class="szol-grid">
+
+            <!-- 45 perc -->
+            <div class="szol-card">
+                <div class="szol-head">
+                    <div class="szol-time">45<small>perces beszélgetés</small></div>
+                    <p class="szol-sub">Fókuszált, rövidebb lelki tehermentesítés</p>
                 </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-
-                    <!-- 45 perces csomag -->
-                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden border-2 border-beige-200 hover:border-earth-500 transition-all flex flex-col">
-                        <div class="p-8 text-center bg-beige-100 border-b border-beige-200">
-                            <h3 class="text-2xl font-serif font-bold text-earth-800">45 perces beszélgetés</h3>
-                            <p class="mt-2 text-sm text-earth-800/60 font-medium">Fókuszált, rövidebb lelki tehermentesítés</p>
-                            <div class="mt-5 grid grid-cols-2 gap-3 text-left">
-                                <div class="bg-white rounded-2xl p-3 border border-beige-200">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-earth-800/60 flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-earth-500"></i> Személyesen
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-earth-500">12.000 <span class="text-xs font-medium text-earth-800/60">Ft</span></div>
-                                </div>
-                                <div class="bg-white rounded-2xl p-3 border border-beige-200">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-earth-800/60 flex items-center gap-1">
-                                        <i class="fa-solid fa-video text-earth-500"></i> Online
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-earth-500">11.000 <span class="text-xs font-medium text-earth-800/60">Ft</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Ideális egy aktuális helyzet kibeszélésére</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Gyorsabb, célzottabb átbeszélés</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Ajándék tea személyes alkalomkor</span></li>
-                            </ul>
-                            <div class="space-y-3">
-                                <button type="button" data-cal-event="45-szemelyesen" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
-                                    <i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>Személyesen – 12.000 Ft
-                                </button>
-                                <button type="button" data-cal-event="45-online" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
-                                    <i class="fa-solid fa-video mr-2 text-earth-500"></i>Online – 11.000 Ft
-                                </button>
-                            </div>
-                        </div>
+                <div class="szol-body">
+                    <ul class="szol-list">
+                        <li><i class="fa-solid fa-check"></i><span>Ideális egy aktuális helyzet kibeszélésére</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Gyorsabb, célzottabb átbeszélés</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Ajándék tea személyes alkalomkor</span></li>
+                    </ul>
+                    <div class="szol-actions">
+                        <button type="button" data-cal-event="45-szemelyesen" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-location-dot"></i> Személyesen</span>
+                            <span class="szol-btn-price">12.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                        <button type="button" data-cal-event="45-online" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-video"></i> Online</span>
+                            <span class="szol-btn-price">11.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
                     </div>
-
-                    <!-- 60 perces csomag -->
-                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden border-2 border-beige-200 hover:border-earth-500 transition-all flex flex-col">
-                        <div class="p-8 text-center bg-beige-100 border-b border-beige-200">
-                            <h3 class="text-2xl font-serif font-bold text-earth-800">60 perces beszélgetés</h3>
-                            <p class="mt-2 text-sm text-earth-800/60 font-medium">Nyugodt, kapkodásmentes idő</p>
-                            <div class="mt-5 grid grid-cols-2 gap-3 text-left">
-                                <div class="bg-white rounded-2xl p-3 border border-beige-200">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-earth-800/60 flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-earth-500"></i> Személyesen
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-earth-500">15.000 <span class="text-xs font-medium text-earth-800/60">Ft</span></div>
-                                </div>
-                                <div class="bg-white rounded-2xl p-3 border border-beige-200">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-earth-800/60 flex items-center gap-1">
-                                        <i class="fa-solid fa-video text-earth-500"></i> Online
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-earth-500">14.000 <span class="text-xs font-medium text-earth-800/60">Ft</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Kényelmes tempó a gondolatok rendezéséhez</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Összetettebb témák megosztása</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-earth-500 mt-1 mr-3"></i><span class="text-earth-800/80">Ajándék tea személyes alkalomkor</span></li>
-                            </ul>
-                            <div class="space-y-3">
-                                <button type="button" data-cal-event="60-szemelyesen" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
-                                    <i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>Személyesen – 15.000 Ft
-                                </button>
-                                <button type="button" data-cal-event="60-online" class="block w-full py-3 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold text-center rounded-xl transition-colors">
-                                    <i class="fa-solid fa-video mr-2 text-earth-500"></i>Online – 14.000 Ft
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 80 perces csomag (Kiemelt, narancs) -->
-                    <div class="bg-earth-500 rounded-3xl shadow-xl overflow-hidden lg:-translate-y-3 flex flex-col relative">
-                        <div class="absolute top-0 inset-x-0 h-1 bg-beige-200"></div>
-                        <div class="absolute top-4 right-4 bg-white text-earth-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Legmélyebb
-                        </div>
-                        <div class="p-8 text-center border-b border-white/20">
-                            <h3 class="text-2xl font-serif font-bold text-white">80 perces beszélgetés</h3>
-                            <p class="mt-2 text-sm text-beige-200 font-medium">Bőséges idő a mélyebb kibontásra</p>
-                            <div class="mt-5 grid grid-cols-2 gap-3 text-left">
-                                <div class="bg-earth-800/30 rounded-2xl p-3 border border-white/20">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-beige-200 flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot"></i> Személyesen
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-white">20.000 <span class="text-xs font-medium text-beige-200">Ft</span></div>
-                                </div>
-                                <div class="bg-earth-800/30 rounded-2xl p-3 border border-white/20">
-                                    <div class="text-xs font-semibold uppercase tracking-wider text-beige-200 flex items-center gap-1">
-                                        <i class="fa-solid fa-video"></i> Online
-                                    </div>
-                                    <div class="mt-1 text-xl font-extrabold text-white">18.000 <span class="text-xs font-medium text-beige-200">Ft</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Hosszabb idő a részletek kibontására</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Mélyebb, többrétegű témák átbeszélése</span></li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-beige-200 mt-1 mr-3"></i><span class="text-white">Ajándék tea vagy forró csoki (személyesen)</span></li>
-                            </ul>
-                            <div class="space-y-3">
-                                <button type="button" data-cal-event="80-szemelyesen" class="block w-full py-3 px-4 bg-white hover:bg-beige-100 text-earth-500 font-semibold text-center rounded-xl transition-colors shadow-md">
-                                    <i class="fa-solid fa-location-dot mr-2"></i>Személyesen – 20.000 Ft
-                                </button>
-                                <button type="button" data-cal-event="80-online" class="block w-full py-3 px-4 bg-white hover:bg-beige-100 text-earth-500 font-semibold text-center rounded-xl transition-colors shadow-md">
-                                    <i class="fa-solid fa-video mr-2"></i>Online – 18.000 Ft
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="mt-12 text-center text-sm text-earth-800/60 max-w-2xl mx-auto">
-                    *Fontos megjegyzés: A szolgáltatás nem helyettesíti a pszichiátriai vagy pszichológiai kezelést. Ha krízishelyzetben vagy, kérjük, keresd fel a megfelelő szakellátást vagy hívj segélyvonalat!
                 </div>
             </div>
-        </section>
+
+            <!-- 60 perc -->
+            <div class="szol-card">
+                <div class="szol-head">
+                    <div class="szol-time">60<small>perces beszélgetés</small></div>
+                    <p class="szol-sub">Nyugodt, kapkodásmentes idő</p>
+                </div>
+                <div class="szol-body">
+                    <ul class="szol-list">
+                        <li><i class="fa-solid fa-check"></i><span>Kényelmes tempó a gondolatok rendezéséhez</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Összetettebb témák megosztása</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Ajándék tea személyes alkalomkor</span></li>
+                    </ul>
+                    <div class="szol-actions">
+                        <button type="button" data-cal-event="60-szemelyesen" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-location-dot"></i> Személyesen</span>
+                            <span class="szol-btn-price">15.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                        <button type="button" data-cal-event="60-online" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-video"></i> Online</span>
+                            <span class="szol-btn-price">14.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 80 perc (kiemelt) -->
+            <div class="szol-card szol-card-featured">
+                <span class="szol-badge">Legmélyebb</span>
+                <div class="szol-head">
+                    <div class="szol-time">80<small>perces beszélgetés</small></div>
+                    <p class="szol-sub">Bőséges idő a mélyebb kibontásra</p>
+                </div>
+                <div class="szol-body">
+                    <ul class="szol-list">
+                        <li><i class="fa-solid fa-check"></i><span>Hosszabb idő a részletek kibontására</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Mélyebb, többrétegű témák átbeszélése</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Ajándék tea vagy forró csoki (személyesen)</span></li>
+                    </ul>
+                    <div class="szol-actions">
+                        <button type="button" data-cal-event="80-szemelyesen" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-location-dot"></i> Személyesen</span>
+                            <span class="szol-btn-price">20.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                        <button type="button" data-cal-event="80-online" class="szol-btn">
+                            <span class="szol-btn-label"><i class="fa-solid fa-video"></i> Online</span>
+                            <span class="szol-btn-price">18.000 Ft <i class="fa-solid fa-arrow-right"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="szol-note">
+            *Fontos megjegyzés: A szolgáltatás nem helyettesíti a pszichiátriai vagy pszichológiai kezelést. Ha krízishelyzetben vagy, kérjük, keresd fel a megfelelő szakellátást, vagy hívj segélyvonalat!
+        </p>
+    </div>
+</section>
 
         <!-- VÉLEMÉNYEK: fehér szekció, krém kártyák -->
         <section id="velemenyek" class="py-20 bg-white">
