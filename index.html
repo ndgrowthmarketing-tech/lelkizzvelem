@@ -458,56 +458,182 @@
             </div>
         </section>
 
-        <!-- KAPCSOLAT -->
-        <section id="kapcsolat" class="py-20 bg-beige-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto flex flex-col md:flex-row">
+ <!-- KAPCSOLAT + INTERAKTÍV FOGLALÓ -->
+<section id="kapcsolat" class="kap">
+<style>
+.kap{padding:5rem 0;background:linear-gradient(180deg,#fff8f1 0%,#fdeadb 100%);font-family:'Plus Jakarta Sans',sans-serif;color:#3c1e0a}
+.kap *{box-sizing:border-box}
+.kap-ic{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.kap-wrap{max-width:1080px;margin:0 auto;padding:0 1rem}
+.kap-card{display:grid;grid-template-columns:1fr;background:#fff;border-radius:2rem;overflow:hidden;box-shadow:0 30px 60px -25px rgba(143,62,13,.45)}
 
-                    <div class="md:w-2/5 bg-earth-500 p-10 text-white flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-3xl font-serif font-bold mb-4">Kapcsolat</h3>
-                            <p class="text-beige-100 mb-8">Lépj meg egy lépést magadért, és keress bátran, ha kérdésed van.</p>
+/* Bal: elérhetőség */
+.kap-info{position:relative;overflow:hidden;padding:2.25rem 1.75rem;background:linear-gradient(160deg,#d9661c,#a8470f);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.kap-info::before,.kap-info::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
+.kap-info::before{width:260px;height:260px;right:-90px;top:-80px}
+.kap-info::after{width:180px;height:180px;left:-60px;bottom:-60px}
+.kap-info>*{position:relative;z-index:1}
+.kap-info h3{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 .75rem;font-weight:700}
+.kap-info p{margin:0 0 1.75rem;color:#ffe9d6;line-height:1.6}
+.kap-row{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;color:#fff;text-decoration:none;font-weight:500}
+.kap-row i{width:2.6rem;height:2.6rem;border-radius:50%;background:rgba(0,0,0,.18);display:grid;place-items:center;transition:background .2s,transform .2s;font-style:normal}
+a.kap-row:hover i{background:rgba(255,255,255,.28);transform:scale(1.08)}
+.kap-soc{display:flex;gap:.75rem;align-items:center;font-size:.85rem;color:#ffe3cc}
+.kap-soc a{width:2.4rem;height:2.4rem;border-radius:50%;background:rgba(0,0,0,.18);display:grid;place-items:center;color:#fff;font-weight:700;font-size:.8rem;text-decoration:none;transition:background .2s}
+.kap-soc a:hover{background:rgba(0,0,0,.35)}
 
-                            <div class="space-y-6">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-location-dot"></i></div>
-                                    <span>1119 Budapest, Fehérvári út 107/B</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-phone"></i></div>
-                                    <span>+36 30 727 5373</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-earth-800/30 rounded-full flex items-center justify-center mr-4"><i class="fa-solid fa-envelope"></i></div>
-                                    <span>info@lelkizzvelem.hu</span>
-                                </div>
-                            </div>
-                        </div>
+/* Jobb: foglaló */
+.kap-book{padding:2.25rem 1.5rem}
+.kap-book h3{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 .4rem;font-weight:700}
+.kap-lead{margin:0 0 1.75rem;color:rgba(60,30,10,.7);line-height:1.6}
+.kap-step{display:flex;align-items:center;gap:.6rem;font-weight:700;margin:0 0 .75rem;font-size:.95rem}
+.kap-step b{width:1.7rem;height:1.7rem;border-radius:50%;background:#C85A17;color:#fff;display:grid;place-items:center;font-size:.85rem}
+.kap-opts{display:grid;gap:.6rem;margin-bottom:1.5rem}
+.kap-opts.three{grid-template-columns:repeat(3,1fr)}
+.kap-opts.two{grid-template-columns:repeat(2,1fr)}
+.kap-opt{position:relative;font:inherit;cursor:pointer;text-align:center;padding:.9rem .4rem;border:2px solid #f0e0d0;border-radius:1.1rem;background:#fff8f1;color:#3c1e0a;transition:all .2s}
+.kap-opt:hover{border-color:#C85A17;transform:translateY(-3px)}
+.kap-opt[aria-pressed=true]{background:#C85A17;border-color:#C85A17;color:#fff;box-shadow:0 14px 24px -12px rgba(200,90,23,.8);transform:translateY(-3px)}
+.kap-num{display:block;font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;line-height:1}
+.kap-sm{display:block;margin-top:.3rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;opacity:.75}
+.kap-fmt{display:flex;flex-direction:column;align-items:center;gap:.35rem;font-weight:600}
+.kap-fmt .kap-ic{width:1.5rem;height:1.5rem}
+.kap-fmt small{font-weight:400;font-size:.75rem;opacity:.8}
+.kap-tag{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:#3c1e0a;color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:999px;white-space:nowrap}
 
-                        <div class="mt-12">
-                            <p class="text-sm text-beige-200 mb-3">Kövess minket:</p>
-                            <div class="flex space-x-4">
-                                <a href="#" aria-label="Facebook" class="w-10 h-10 bg-earth-800/30 hover:bg-earth-800/60 rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#" aria-label="Instagram" class="w-10 h-10 bg-earth-800/30 hover:bg-earth-800/60 rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
+/* Összegzés + CTA */
+.kap-sum{border-radius:1.5rem;padding:1.4rem;background:linear-gradient(135deg,#fff3e6,#ffe3cc);border:1px dashed rgba(200,90,23,.5)}
+.kap-sum-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.kap-pick{font-weight:700;font-size:1.05rem}
+.kap-perk{display:flex;align-items:center;gap:.4rem;margin-top:.25rem;font-size:.88rem;color:rgba(60,30,10,.75)}
+.kap-price{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#C85A17;line-height:1;white-space:nowrap}
+.kap-price small{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:600;margin-left:.25rem}
+.kap-cta{width:100%;display:flex;align-items:center;justify-content:center;gap:.7rem;font:inherit;font-weight:700;font-size:1.1rem;padding:1.1rem 1.5rem;border:0;border-radius:999px;cursor:pointer;color:#fff;background:#C85A17;animation:kapPulse 2.4s infinite;transition:transform .2s,background .2s}
+.kap-cta:hover{background:#8f3e0d;transform:translateY(-3px)}
+.kap-cta:hover .kap-ic{transform:translateX(5px)}
+.kap-cta .kap-ic{transition:transform .2s}
+@keyframes kapPulse{0%{box-shadow:0 0 0 0 rgba(200,90,23,.55)}70%{box-shadow:0 0 0 16px rgba(200,90,23,0)}100%{box-shadow:0 0 0 0 rgba(200,90,23,0)}}
+.kap-foot{margin:.9rem 0 0;text-align:center;font-size:.8rem;color:rgba(60,30,10,.6)}
+.kap-toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,120%);background:#3c1e0a;color:#fff;padding:.9rem 1.4rem;border-radius:999px;font-size:.9rem;z-index:99;transition:transform .3s;max-width:90vw;text-align:center}
+.kap-toast.on{transform:translate(-50%,0)}
 
-                    <div class="md:w-3/5 p-10 bg-white flex flex-col justify-center">
-                        <h3 class="text-3xl font-serif font-bold text-earth-800 mb-3">Foglalj időpontot</h3>
-                        <p class="text-earth-800/70 mb-8">Válaszd ki az időtartamot és a formát, majd a felugró naptárban válaszd ki a számodra megfelelő időpontot.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <button type="button" data-cal-event="45-szemelyesen" class="py-3.5 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>45 perc – személyesen (12.000 Ft)</button>
-                            <button type="button" data-cal-event="45-online" class="py-3.5 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-video mr-2 text-earth-500"></i>45 perc – online (11.000 Ft)</button>
-                            <button type="button" data-cal-event="60-szemelyesen" class="py-3.5 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-location-dot mr-2 text-earth-500"></i>60 perc – személyesen (15.000 Ft)</button>
-                            <button type="button" data-cal-event="60-online" class="py-3.5 px-4 bg-beige-50 hover:bg-beige-100 border border-beige-200 text-earth-800 font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-video mr-2 text-earth-500"></i>60 perc – online (14.000 Ft)</button>
-                            <button type="button" data-cal-event="80-szemelyesen" class="py-3.5 px-4 bg-earth-500 hover:bg-earth-800 text-white font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-location-dot mr-2"></i>80 perc – személyesen (20.000 Ft)</button>
-                            <button type="button" data-cal-event="80-online" class="py-3.5 px-4 bg-earth-500 hover:bg-earth-800 text-white font-semibold rounded-xl transition-colors text-left sm:text-center"><i class="fa-solid fa-video mr-2"></i>80 perc – online (18.000 Ft)</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+@media(min-width:900px){
+ .kap-card{grid-template-columns:5fr 7fr}
+ .kap-info{padding:3rem 2.5rem}
+ .kap-book{padding:3rem 2.75rem}
+}
+@media(prefers-reduced-motion:reduce){.kap-cta{animation:none}.kap-opt,.kap-cta{transition:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="kap-i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+ <symbol id="kap-i-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></symbol>
+ <symbol id="kap-i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+ <symbol id="kap-i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+ <symbol id="kap-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="kap-i-cup" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M7 2v3M11 2v3M15 2v3"/></symbol>
+</svg>
+
+<div class="kap-wrap">
+ <div class="kap-card">
+
+  <!-- Elérhetőség -->
+  <div class="kap-info">
+   <div>
+    <h3>Kapcsolat</h3>
+    <p>Lépj meg egy lépést magadért, és keress bátran, ha kérdésed van.</p>
+    <div class="kap-row"><i><svg class="kap-ic"><use href="#kap-i-pin"/></svg></i><span>1119 Budapest, Fehérvári út 107/B</span></div>
+    <a class="kap-row" href="tel:+36307275373"><i><svg class="kap-ic"><use href="#kap-i-phone"/></svg></i><span>+36 30 727 5373</span></a>
+    <a class="kap-row" href="mailto:info@lelkizzvelem.hu"><i><svg class="kap-ic"><use href="#kap-i-mail"/></svg></i><span>info@lelkizzvelem.hu</span></a>
+   </div>
+   <div class="kap-soc">
+    <span>Kövess minket:</span>
+    <a href="#" aria-label="Facebook">f</a>
+    <a href="#" aria-label="Instagram">IG</a>
+   </div>
+  </div>
+
+  <!-- Foglaló -->
+  <div class="kap-book">
+   <h3>Foglalj időpontot</h3>
+   <p class="kap-lead">Három kattintás, és már csak az időpontot kell kiválasztanod.</p>
+
+   <p class="kap-step"><b>1</b> Mennyi időre van szükséged?</p>
+   <div class="kap-opts three" id="kap-dur">
+    <button type="button" class="kap-opt" data-v="45" aria-pressed="false"><span class="kap-num">45</span><span class="kap-sm">perc</span></button>
+    <button type="button" class="kap-opt" data-v="60" aria-pressed="true"><span class="kap-num">60</span><span class="kap-sm">perc</span></button>
+    <button type="button" class="kap-opt" data-v="80" aria-pressed="false"><span class="kap-tag">Legmélyebb</span><span class="kap-num">80</span><span class="kap-sm">perc</span></button>
+   </div>
+
+   <p class="kap-step"><b>2</b> Hogyan találkozzunk?</p>
+   <div class="kap-opts two" id="kap-fmt">
+    <button type="button" class="kap-opt" data-v="szemelyesen" aria-pressed="true"><span class="kap-fmt"><svg class="kap-ic"><use href="#kap-i-pin"/></svg>Személyesen<small>Budapesten, teával</small></span></button>
+    <button type="button" class="kap-opt" data-v="online" aria-pressed="false"><span class="kap-fmt"><svg class="kap-ic"><use href="#kap-i-video"/></svg>Online<small>Bárhonnan, videón</small></span></button>
+   </div>
+
+   <p class="kap-step"><b>3</b> Készen is vagy</p>
+   <div class="kap-sum">
+    <div class="kap-sum-top">
+     <div>
+      <div class="kap-pick" id="kap-pick"></div>
+      <div class="kap-perk"><svg class="kap-ic"><use href="#kap-i-cup"/></svg><span id="kap-perk"></span></div>
+     </div>
+     <div class="kap-price"><span id="kap-price">0</span><small>Ft</small></div>
+    </div>
+    <button type="button" class="kap-cta" id="kap-cta">
+     <span>Időpontot foglalok</span><svg class="kap-ic"><use href="#kap-i-arrow"/></svg>
+    </button>
+   </div>
+   <p class="kap-foot">A következő lépésben a naptárból választod ki a számodra megfelelő időpontot.</p>
+  </div>
+
+ </div>
+</div>
+<div class="kap-toast" id="kap-toast" role="status"></div>
+
+<script>
+(function(){
+ var PRICES={45:{szemelyesen:12000,online:11000},60:{szemelyesen:15000,online:14000},80:{szemelyesen:20000,online:18000}};
+ var dur='60',fmt='szemelyesen',shown=0,raf;
+ var $=function(id){return document.getElementById(id)};
+ function fmtN(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+ function animate(to){
+  cancelAnimationFrame(raf);var from=shown,t0=null;
+  function s(t){if(!t0)t0=t;var p=Math.min((t-t0)/350,1);shown=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));
+   $('kap-price').textContent=fmtN(shown);if(p<1)raf=requestAnimationFrame(s)}
+  raf=requestAnimationFrame(s);
+ }
+ function update(){
+  $('kap-pick').textContent=dur+' perces beszélgetés · '+(fmt==='online'?'Online':'Személyesen');
+  $('kap-perk').textContent=fmt==='online'?'Nyugodt videóhívás, bárhonnan':(dur==='80'?'Ajándék tea vagy forró csoki':'Ajándék tea vár rád');
+  animate(PRICES[dur][fmt]);
+ }
+ function bind(id,set){
+  var box=$(id);
+  box.addEventListener('click',function(e){
+   var b=e.target.closest('.kap-opt');if(!b)return;
+   box.querySelectorAll('.kap-opt').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+   set(b.dataset.v);update();
+  });
+ }
+ bind('kap-dur',function(v){dur=v});
+ bind('kap-fmt',function(v){fmt=v});
+ $('kap-cta').addEventListener('click',function(){
+  var key=dur+'-'+fmt;
+  if(typeof CAL_EVENTS!=='undefined'&&CAL_EVENTS[key]){
+   var ev=CAL_EVENTS[key];
+   if(typeof startCal==='function')startCal();
+   Cal.ns[ev.namespace]('modal',{calLink:ev.link,config:CAL_CONFIG_OBJ});
+  }else{
+   var t=$('kap-toast');t.textContent='Előnézet: itt nyílna meg a naptár ('+key+')';
+   t.classList.add('on');setTimeout(function(){t.classList.remove('on')},2500);
+  }
+ });
+ update();
+})();
+</script>
+</section>
+
     </main>
 
     <footer class="bg-earth-900 text-beige-100 py-12">
