@@ -134,76 +134,129 @@
         </section>
 
 <!-- RÓLAM -->
-<section id="rolam" class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+<section id="rolam" class="py-20 lg:py-28 bg-white overflow-hidden">
+    <style>
+        .rolam-wrap { position: relative; max-width: 1180px; margin: 0 auto; }
 
-            <!-- Kép -->
-            <div class="w-full max-w-md mx-auto lg:max-w-none lg:w-5/12 relative">
-                <div class="absolute inset-0 bg-earth-500 rounded-3xl transform translate-x-4 translate-y-4"></div>
-                <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async"
-                     class="relative z-10 w-full aspect-[4/5] object-cover rounded-3xl shadow-xl">
+        /* Kártya */
+        .rolam-card {
+            background: #fff8f1;
+            border: 1px solid rgba(200, 90, 23, .2);
+            border-radius: 1.75rem;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, .15);
+            padding: 2.5rem 1.5rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .rolam-card p { font-size: 1.05rem; line-height: 1.75; font-weight: 400; margin: 0 0 1.1rem; }
+        .rolam-card strong { font-weight: 600; }
+        .rolam-lead { border-left: 4px solid #C85A17; padding-left: 1rem; }
+        .rolam-note { font-size: .95rem !important; opacity: .75; }
+
+        /* Kép */
+        .rolam-photo { position: relative; z-index: 2; width: 80%; max-width: 360px; margin: 0 auto; }
+        .rolam-photo::before {
+            content: ""; position: absolute; inset: 0;
+            background: #C85A17; border-radius: 1.75rem;
+            transform: translate(14px, 14px);
+        }
+        .rolam-photo img {
+            position: relative; display: block; width: 100%;
+            aspect-ratio: 4 / 5; object-fit: cover;
+            border-radius: 1.75rem; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .3);
+        }
+
+        /* Címkék */
+        .rolam-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 1.5rem; }
+        .rolam-tags span {
+            padding: .4rem 1rem; background: #fff; border: 1px solid rgba(200, 90, 23, .35);
+            border-radius: 999px; font-size: .875rem; font-weight: 500;
+        }
+
+        /* Felhívás + gombok */
+        .rolam-cta { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid rgba(200, 90, 23, .25); }
+        .rolam-btns { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0 1.5rem; }
+        .rolam-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+            padding: .8rem 1.6rem; border-radius: 999px; font-weight: 600;
+            border: 2px solid #C85A17; transition: all .2s; text-decoration: none;
+        }
+        .rolam-btn-fill { background: #C85A17; color: #fff; }
+        .rolam-btn-fill:hover { background: #8f3e0d; border-color: #8f3e0d; transform: translateY(-2px); }
+        .rolam-btn-line { background: #fff; color: #C85A17; }
+        .rolam-btn-line:hover { background: #C85A17; color: #fff; transform: translateY(-2px); }
+
+        /* Asztali nézet: a kép kilóg a kártyából balra */
+        @media (min-width: 1024px) {
+            .rolam-wrap { display: flex; align-items: center; }
+            .rolam-photo { width: 440px; max-width: none; margin: 0; flex: none; }
+            .rolam-card {
+                margin-top: 0; margin-left: -110px;
+                padding: 3.5rem 3.5rem 3.5rem 170px;
+            }
+        }
+    </style>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rolam-wrap">
+
+            <!-- Kép (kilóg a kártyából) -->
+            <div class="rolam-photo">
+                <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async">
             </div>
 
             <!-- Szöveg kártya -->
-            <div class="w-full lg:w-7/12 bg-orange-50/60 border border-earth-500/20 rounded-3xl shadow-lg p-8 md:p-12">
+            <div class="rolam-card text-earth-800">
 
                 <span class="text-earth-500 font-semibold tracking-wider uppercase text-sm mb-3 block">Ismerjük meg egymást</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-8 leading-tight">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-earth-800 mb-6 leading-tight">
                     Pucz Mónika vagyok,<br class="hidden md:block">
                     a Lelkizz velem megálmodója.
                 </h2>
 
-                <div class="space-y-5 text-base md:text-lg text-earth-800/80 font-light leading-relaxed">
+                <p class="rolam-lead">
+                    <strong>11 éve hallgatok embereket</strong> a masszázs mellett, és azt tapasztalom: hatalmas megkönnyebbülést hoz, ha valaki <strong>valóban értő figyelemmel, ítélkezés nélkül</strong> meghallgatja őket.
+                </p>
 
-                    <!-- Kiemelt bevezető -->
-                    <p class="border-l-4 border-earth-500 pl-5 text-earth-800">
-                        <strong class="font-semibold">11 éve hallgatok embereket</strong> a masszázs mellett, és azt tapasztalom: hatalmas megkönnyebbülést hoz, ha valaki <strong class="font-semibold">valóban értő figyelemmel, ítélkezés nélkül</strong> meghallgatja őket.
-                    </p>
+                <p>
+                    Sokszor eltűnődtem, hogy a masszázs miatt jönnek hozzám, vagy azért, mert itt megnyílhatnak. Valószínűleg mindkettő.
+                </p>
 
-                    <p>
-                        Sokszor eltűnődtem, hogy a masszázs miatt jönnek hozzám, vagy azért, mert itt megnyílhatnak. Valószínűleg mindkettő.
-                    </p>
+                <p>
+                    Az emberi lélektan régóta foglalkoztat, ezért az elmúlt években több területen is tanultam. Most eljött az idő, hogy megnyissam a Lelkizz velemet: egy csendes, biztonságos menedéket a rohanó hétköznapokban, ahol leteheted a terheidet, és ráláthatsz azokra az elakadásaidra, amelyeket magadtól talán nem vettél volna észre.
+                </p>
 
-                    <p>
-                        Az emberi lélektan régóta foglalkoztat, ezért az elmúlt években több területen is tanultam. Most eljött az idő, hogy megnyissam a Lelkizz velemet: egy csendes, biztonságos menedéket a rohanó hétköznapokban, ahol leteheted a terheidet, és ráláthatsz azokra az elakadásaidra, amelyeket magadtól talán nem vettél volna észre.
-                    </p>
-
-                    <!-- Képzések -->
-                    <div class="flex flex-wrap gap-2 pt-1">
-                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Theta healing</span>
-                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Családállítás</span>
-                        <span class="px-4 py-1.5 bg-white border border-earth-500/30 rounded-full text-sm font-medium text-earth-800">Pszichológia konzulens képzés</span>
-                    </div>
-
-                    <p>
-                        Ha szeretnéd, a beszélgetést egy <strong class="font-semibold text-earth-800">10 perces hát-, kéz- vagy talpmasszázzsal</strong> is kiegészíthetjük.
-                    </p>
-
-                    <p class="text-sm md:text-base text-earth-800/70 italic">
-                        Ha azt látom, hogy a helyzeted meghaladja a kompetenciahatáraimat, megfelelő szakemberhez (pszichológushoz, pszichiáterhez) irányítalak.
-                    </p>
+                <div class="rolam-tags">
+                    <span>Theta healing</span>
+                    <span>Családállítás</span>
+                    <span>Pszichológia konzulens képzés</span>
                 </div>
 
-                <!-- Felhívás -->
-                <div class="mt-10 pt-8 border-t border-earth-500/20">
-                    <p class="font-serif text-xl md:text-2xl text-earth-800 mb-5">
-                        Ha megszólított ez az oldal, <br class="hidden sm:block">
+                <p>
+                    Ha szeretnéd, a beszélgetést egy <strong>10 perces hát-, kéz- vagy talpmasszázzsal</strong> is kiegészíthetjük.
+                </p>
+
+                <p class="rolam-note">
+                    Ha azt látom, hogy a helyzeted meghaladja a kompetenciahatáraimat, megfelelő szakemberhez (pszichológushoz, pszichiáterhez) irányítalak.
+                </p>
+
+                <div class="rolam-cta">
+                    <p class="font-serif text-xl md:text-2xl" style="margin:0;">
+                        Ha megszólított ez az oldal,<br class="hidden sm:block">
                         hívj, vagy foglalj online időpontot.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="tel:+36000000000"
-                           class="inline-flex items-center justify-center gap-2 px-7 py-3 bg-earth-500 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <div class="rolam-btns">
+                        <a href="tel:+36307275373" class="rolam-btn rolam-btn-fill">
                             <i class="fa-solid fa-phone"></i> Hívj most
                         </a>
-                        <a href="#idopont"
-                           class="inline-flex items-center justify-center gap-2 px-7 py-3 bg-white text-earth-500 font-semibold border-2 border-earth-500 rounded-full hover:bg-earth-500 hover:text-white transition">
+                        <a href="#szolgaltatasok" class="rolam-btn rolam-btn-line">
                             <i class="fa-regular fa-calendar"></i> Időpontot foglalok
                         </a>
                     </div>
 
-                    <p class="mt-6 text-lg text-earth-800">Várlak szeretettel! 🫶🍀🌺</p>
+                    <p style="margin:0; font-size:1.15rem;">Várlak szeretettel! 🫶🍀🌺</p>
                 </div>
 
             </div>
