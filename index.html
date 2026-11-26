@@ -145,7 +145,6 @@
             border-radius: 1.75rem;
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, .15);
             padding: 2.5rem 1.5rem;
-            margin-top: -3rem;
             position: relative;
             z-index: 1;
         }
@@ -154,8 +153,8 @@
         .rolam-lead { border-left: 4px solid #C85A17; padding-left: 1rem; }
         .rolam-note { font-size: .95rem !important; opacity: .75; }
 
-        /* Kép */
-        .rolam-photo { position: relative; z-index: 2; width: 80%; max-width: 360px; margin: 0 auto; }
+        /* Kép (közös) */
+        .rolam-photo { position: relative; z-index: 2; width: 80%; max-width: 340px; margin: 0 auto; }
         .rolam-photo::before {
             content: ""; position: absolute; inset: 0;
             background: #C85A17; border-radius: 1.75rem;
@@ -166,6 +165,10 @@
             aspect-ratio: 4 / 5; object-fit: cover;
             border-radius: 1.75rem; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .3);
         }
+
+        /* Mobil/tablet: kép a kártyán belül, az "irányítalak" alatt */
+        .rolam-photo-mobile { display: block; margin: 2rem auto 2.5rem; }
+        .rolam-photo-desktop { display: none; }
 
         /* Címkék */
         .rolam-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 1.5rem; }
@@ -187,12 +190,18 @@
         .rolam-btn-line { background: #fff; color: #C85A17; }
         .rolam-btn-line:hover { background: #C85A17; color: #fff; transform: translateY(-2px); }
 
+        /* Kis mobilon a gombok teljes szélességűek */
+        @media (max-width: 480px) {
+            .rolam-btn { width: 100%; }
+        }
+
         /* Asztali nézet: a kép kilóg a kártyából balra */
         @media (min-width: 1024px) {
             .rolam-wrap { display: flex; align-items: center; }
-            .rolam-photo { width: 440px; max-width: none; margin: 0; flex: none; }
+            .rolam-photo-mobile { display: none; }
+            .rolam-photo-desktop { display: block; width: 440px; max-width: none; margin: 0; flex: none; }
             .rolam-card {
-                margin-top: 0; margin-left: -110px;
+                margin-left: -110px;
                 padding: 3.5rem 3.5rem 3.5rem 170px;
             }
         }
@@ -201,8 +210,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="rolam-wrap">
 
-            <!-- Kép (kilóg a kártyából) -->
-            <div class="rolam-photo">
+            <!-- Kép: csak asztali nézetben (kilóg a kártyából) -->
+            <div class="rolam-photo rolam-photo-desktop">
                 <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async">
             </div>
 
@@ -240,6 +249,11 @@
                 <p class="rolam-note">
                     Ha azt látom, hogy a helyzeted meghaladja a kompetenciahatáraimat, megfelelő szakemberhez (pszichológushoz, pszichiáterhez) irányítalak.
                 </p>
+
+                <!-- Kép: csak mobilon és tableten, az "irányítalak" alatt -->
+                <div class="rolam-photo rolam-photo-mobile">
+                    <img src="bemutatkozokep.webp" alt="Pucz Mónika, a Lelkizz velem alapítója" loading="lazy" decoding="async">
+                </div>
 
                 <div class="rolam-cta">
                     <p class="font-serif text-xl md:text-2xl" style="margin:0;">
